@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miao_ToolCase", "Miao_ToolCase\Miao_ToolCase.csproj", "{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Type_Conver类型转换", "Type_Conver\Type_Conver类型转换.csproj", "{1431A7F9-8717-412A-B4AB-274AB6142C37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skill_Point技能点", "Skill_Point\Skill_Point技能点.csproj", "{1E3943B2-B43F-45E9-A578-12DF1D6AE2D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bins", "Bins", "{AC33E8CC-ECF6-4DE4-A72E-F76CA1F2B47A}"
+	ProjectSection(SolutionItems) = preProject
+		..\Test\BasicKnowledge\bin\Debug\log4net.dll = ..\Test\BasicKnowledge\bin\Debug\log4net.dll
+		..\Test\Test\bin\Microsoft.Office.Interop.Excel.dll = ..\Test\Test\bin\Microsoft.Office.Interop.Excel.dll
+		..\Test\Test\bin\Microsoft.Office.Interop.Word.dll = ..\Test\Test\bin\Microsoft.Office.Interop.Word.dll
+		..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll = ..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll = ..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll
+		..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.ServiceLocation.dll = ..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+		..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.Unity.dll = ..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.Unity.dll
+		..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.Unity.Interception.dll = ..\Test\BasicKnowledge\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+		..\Test\BasicKnowledge\bin\Debug\PagedList.dll = ..\Test\BasicKnowledge\bin\Debug\PagedList.dll
+		..\Test\BasicKnowledge\bin\Debug\PagedList.Mvc.dll = ..\Test\BasicKnowledge\bin\Debug\PagedList.Mvc.dll
+		..\Test\BasicKnowledge\bin\Debug\PagedList.Mvc.xml = ..\Test\BasicKnowledge\bin\Debug\PagedList.Mvc.xml
+		..\Test\BasicKnowledge\bin\Debug\PagedList.xml = ..\Test\BasicKnowledge\bin\Debug\PagedList.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{51203A6A-947C-462B-934B-C8D697BF0A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils工具", "Utils工具\Utils工具.csproj", "{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCore", "MyCore\MyCore.csproj", "{1CAD80D5-003D-4C3F-9A45-502B20601694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF", "EF\EF.csproj", "{512EDD5D-2708-46CC-B35F-0929E5AFB78A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{64B32F33-2206-4CA8-B5C3-F8110A1E0E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knowledge_Point知识点", "Knowledge_Point知识点\Knowledge_Point知识点.csproj", "{61641786-162C-4058-8929-167B3324DF3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelForm", "ModelForm\ModelForm.csproj", "{88917395-C58E-4807-94A8-A566B1CCD34F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D611735D-B708-419C-B139-D39F28DAC9FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1431A7F9-8717-412A-B4AB-274AB6142C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1431A7F9-8717-412A-B4AB-274AB6142C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1431A7F9-8717-412A-B4AB-274AB6142C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1431A7F9-8717-412A-B4AB-274AB6142C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3943B2-B43F-45E9-A578-12DF1D6AE2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3943B2-B43F-45E9-A578-12DF1D6AE2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3943B2-B43F-45E9-A578-12DF1D6AE2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3943B2-B43F-45E9-A578-12DF1D6AE2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51203A6A-947C-462B-934B-C8D697BF0A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51203A6A-947C-462B-934B-C8D697BF0A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51203A6A-947C-462B-934B-C8D697BF0A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51203A6A-947C-462B-934B-C8D697BF0A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CAD80D5-003D-4C3F-9A45-502B20601694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CAD80D5-003D-4C3F-9A45-502B20601694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CAD80D5-003D-4C3F-9A45-502B20601694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CAD80D5-003D-4C3F-9A45-502B20601694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512EDD5D-2708-46CC-B35F-0929E5AFB78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512EDD5D-2708-46CC-B35F-0929E5AFB78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512EDD5D-2708-46CC-B35F-0929E5AFB78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512EDD5D-2708-46CC-B35F-0929E5AFB78A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64B32F33-2206-4CA8-B5C3-F8110A1E0E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B32F33-2206-4CA8-B5C3-F8110A1E0E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B32F33-2206-4CA8-B5C3-F8110A1E0E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B32F33-2206-4CA8-B5C3-F8110A1E0E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61641786-162C-4058-8929-167B3324DF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61641786-162C-4058-8929-167B3324DF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61641786-162C-4058-8929-167B3324DF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61641786-162C-4058-8929-167B3324DF3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88917395-C58E-4807-94A8-A566B1CCD34F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88917395-C58E-4807-94A8-A566B1CCD34F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88917395-C58E-4807-94A8-A566B1CCD34F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88917395-C58E-4807-94A8-A566B1CCD34F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D611735D-B708-419C-B139-D39F28DAC9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D611735D-B708-419C-B139-D39F28DAC9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D611735D-B708-419C-B139-D39F28DAC9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D611735D-B708-419C-B139-D39F28DAC9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

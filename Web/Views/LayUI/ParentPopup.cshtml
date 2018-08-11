@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "ParentPopup";
+}
+
+
+@*<link rel="stylesheet" href="/www.layui.com/admin/std/layuiadmin/layui/css/layui.css"  />
+<link rel="stylesheet" href="/www.layui.com/admin/std/layuiadmin/style/admin.css" />
+<link rel="stylesheet" href="http://www.layui.com/admin/std/dist/layuiadmin/layui/css/modules/layer/default/layer.css?v =3.1.1">*@
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    function sonsay(index)
+    {
+        $("#iframeSon").hide();
+        alert("接收子页面参数" + index);
+    }
+
+</script>
+
+<h2>ParentPopup</h2>
+
+<div id="iframeSon">
+    <iframe id="Popup" style="border:2px solid #eee;" src="/LayUI/SonPopup"></iframe>
+</div>
+

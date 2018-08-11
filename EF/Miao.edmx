@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MiaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“Miao.dbo.bank”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="bank">
+          <Property Name="userName" Type="varchar" MaxLength="10" />
+          <Property Name="balance" Type="money" />
+        </EntityType>-->
+        <EntityType Name="QQUser_info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="openId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="province" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="year" Type="nvarchar" MaxLength="50" />
+          <Property Name="figureurl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="figureurl_2" Type="nvarchar" MaxLength="1024" />
+          <Property Name="figureurl_qq_2" Type="nvarchar" MaxLength="1024" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“Miao.dbo.tb”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="tb">
+          <Property Name="姓名" Type="varchar" MaxLength="10" />
+          <Property Name="课程" Type="varchar" MaxLength="10" />
+          <Property Name="分数" Type="int" />
+        </EntityType>-->
+        <EntityType Name="User_info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Pwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Type" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="User_Organize">
+          <Key>
+            <PropertyRef Name="OrganizeCode" />
+          </Key>
+          <Property Name="OrganizeCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrganizeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_OrganizeMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizeCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_Type">
+          <Key>
+            <PropertyRef Name="UserType_ID" />
+          </Key>
+          <Property Name="UserType_ID" Type="int" Nullable="false" />
+          <Property Name="UserType_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_User_info">
+          <End Role="User_OrganizeMap" Type="Self.User_OrganizeMap" Multiplicity="1" />
+          <End Role="User_OrganizeMap1" Type="Self.User_OrganizeMap" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_OrganizeMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User_OrganizeMap1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_OrganizeMap_User_OrganizeMap">
+          <End Role="User_OrganizeMap" Type="Self.User_OrganizeMap" Multiplicity="1" />
+          <End Role="User_OrganizeMap1" Type="Self.User_OrganizeMap" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_OrganizeMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User_OrganizeMap1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DB_Cursor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DB_Pivot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fn_split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_str" Type="varchar" Mode="In" />
+          <Parameter Name="p_split" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="tid" Type="varchar" MaxLength="2000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="PR_Sum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="a" Type="int" Mode="In" />
+          <Parameter Name="b" Type="int" Mode="In" />
+          <Parameter Name="sum" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Tset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="row" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="MiaoModelStoreContainer">
+          <EntitySet Name="QQUser_info" EntityType="Self.QQUser_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_info" EntityType="Self.User_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Organize" EntityType="Self.User_Organize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_OrganizeMap" EntityType="Self.User_OrganizeMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Type" EntityType="Self.User_Type" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_User_info" Association="Self.FK_User_info">
+            <End Role="User_OrganizeMap" EntitySet="User_OrganizeMap" />
+            <End Role="User_OrganizeMap1" EntitySet="User_OrganizeMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_OrganizeMap_User_OrganizeMap" Association="Self.FK_User_OrganizeMap_User_OrganizeMap">
+            <End Role="User_OrganizeMap" EntitySet="User_OrganizeMap" />
+            <End Role="User_OrganizeMap1" EntitySet="User_OrganizeMap" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MiaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fn_split_Result">
+          <Property Name="tid" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityType Name="QQUser_info">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="openId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="figureurl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="figureurl_2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="figureurl_qq_2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User_info">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Type" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User_Organize">
+          <Key>
+            <PropertyRef Name="OrganizeCode" />
+          </Key>
+          <Property Name="OrganizeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrganizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User_OrganizeMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_OrganizeMap1" Relationship="Self.FK_User_info" FromRole="User_OrganizeMap" ToRole="User_OrganizeMap1" />
+          <NavigationProperty Name="User_OrganizeMap2" Relationship="Self.FK_User_info" FromRole="User_OrganizeMap1" ToRole="User_OrganizeMap" />
+          <NavigationProperty Name="User_OrganizeMap11" Relationship="Self.FK_User_OrganizeMap_User_OrganizeMap" FromRole="User_OrganizeMap" ToRole="User_OrganizeMap1" />
+          <NavigationProperty Name="User_OrganizeMap3" Relationship="Self.FK_User_OrganizeMap_User_OrganizeMap" FromRole="User_OrganizeMap1" ToRole="User_OrganizeMap" />
+        </EntityType>
+        <EntityType Name="User_Type">
+          <Key>
+            <PropertyRef Name="UserType_ID" />
+          </Key>
+          <Property Name="UserType_ID" Type="Int32" Nullable="false" />
+          <Property Name="UserType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_User_info">
+          <End Role="User_OrganizeMap" Type="Self.User_OrganizeMap" Multiplicity="1" />
+          <End Role="User_OrganizeMap1" Type="Self.User_OrganizeMap" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_OrganizeMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User_OrganizeMap1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_OrganizeMap_User_OrganizeMap">
+          <End Role="User_OrganizeMap" Type="Self.User_OrganizeMap" Multiplicity="1" />
+          <End Role="User_OrganizeMap1" Type="Self.User_OrganizeMap" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User_OrganizeMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User_OrganizeMap1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MiaoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="QQUser_info" EntityType="Self.QQUser_info" />
+          <EntitySet Name="User_info" EntityType="Self.User_info" />
+          <EntitySet Name="User_Organize" EntityType="Self.User_Organize" />
+          <EntitySet Name="User_OrganizeMap" EntityType="Self.User_OrganizeMap" />
+          <EntitySet Name="User_Type" EntityType="Self.User_Type" />
+          <AssociationSet Name="FK_User_info" Association="Self.FK_User_info">
+            <End Role="User_OrganizeMap" EntitySet="User_OrganizeMap" />
+            <End Role="User_OrganizeMap1" EntitySet="User_OrganizeMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_OrganizeMap_User_OrganizeMap" Association="Self.FK_User_OrganizeMap_User_OrganizeMap">
+            <End Role="User_OrganizeMap" EntitySet="User_OrganizeMap" />
+            <End Role="User_OrganizeMap1" EntitySet="User_OrganizeMap" />
+          </AssociationSet>
+          <FunctionImport Name="fn_split" IsComposable="true" ReturnType="Collection(MiaoModel.fn_split_Result)">
+            <Parameter Name="p_str" Mode="In" Type="String" />
+            <Parameter Name="p_split" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DB_Cursor" />
+          <FunctionImport Name="DB_Pivot" ReturnType="Collection(MiaoModel.DB_Pivot_Result)" />
+          <FunctionImport Name="PR_Sum">
+            <Parameter Name="a" Mode="In" Type="Int32" />
+            <Parameter Name="b" Mode="In" Type="Int32" />
+            <Parameter Name="sum" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PR_Tset" ReturnType="Collection(Int32)">
+            <Parameter Name="row" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="DB_Pivot_Result">
+          <Property Type="String" Name="姓名" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="课程" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="分数" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MiaoModelStoreContainer" CdmEntityContainer="MiaoEntities">
+          <EntitySetMapping Name="QQUser_info">
+            <EntityTypeMapping TypeName="MiaoModel.QQUser_info">
+              <MappingFragment StoreEntitySet="QQUser_info">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="openId" ColumnName="openId" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="figureurl" ColumnName="figureurl" />
+                <ScalarProperty Name="figureurl_2" ColumnName="figureurl_2" />
+                <ScalarProperty Name="figureurl_qq_2" ColumnName="figureurl_qq_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_info">
+            <EntityTypeMapping TypeName="MiaoModel.User_info">
+              <MappingFragment StoreEntitySet="User_info">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Pwd" ColumnName="User_Pwd" />
+                <ScalarProperty Name="User_Type" ColumnName="User_Type" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Organize">
+            <EntityTypeMapping TypeName="MiaoModel.User_Organize">
+              <MappingFragment StoreEntitySet="User_Organize">
+                <ScalarProperty Name="OrganizeCode" ColumnName="OrganizeCode" />
+                <ScalarProperty Name="OrganizeName" ColumnName="OrganizeName" />
+                <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_OrganizeMap">
+            <EntityTypeMapping TypeName="MiaoModel.User_OrganizeMap">
+              <MappingFragment StoreEntitySet="User_OrganizeMap">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrganizeCode" ColumnName="OrganizeCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Type">
+            <EntityTypeMapping TypeName="MiaoModel.User_Type">
+              <MappingFragment StoreEntitySet="User_Type">
+                <ScalarProperty Name="UserType_ID" ColumnName="UserType_ID" />
+                <ScalarProperty Name="UserType_Name" ColumnName="UserType_Name" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="MiaoModel.Store.fn_split" FunctionImportName="fn_split">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MiaoModel.fn_split_Result">
+                <ScalarProperty Name="tid" ColumnName="tid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DB_Cursor" FunctionName="MiaoModel.Store.DB_Cursor" />
+          <FunctionImportMapping FunctionImportName="DB_Pivot" FunctionName="MiaoModel.Store.DB_Pivot">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MiaoModel.DB_Pivot_Result">
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="课程" ColumnName="课程" />
+                <ScalarProperty Name="分数" ColumnName="分数" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_Sum" FunctionName="MiaoModel.Store.PR_Sum" />
+          <FunctionImportMapping FunctionImportName="PR_Tset" FunctionName="MiaoModel.Store.PR_Tset" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

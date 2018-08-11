@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1811452E-91F3-43FB-88EB-B7E7BC5F07AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Utils工具</RootNamespace>
+    <AssemblyName>Utils工具</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="加密\Rsa.cs" />
+    <Compile Include="唯一主键\Class1.cs" />
+    <Compile Include="帮助类\ConstString.cs" />
+    <Compile Include="帮助类\DESEncrypt.cs" />
+    <Compile Include="帮助类\DictionaryHelper.cs" />
+    <Compile Include="帮助类\Email.cs" />
+    <Compile Include="帮助类\Encrypt_Helper.cs" />
+    <Compile Include="帮助类\HttpPosts.cs" />
+    <Compile Include="帮助类\IDCardValidation.cs" />
+    <Compile Include="帮助类\IOHelper.cs" />
+    <Compile Include="帮助类\JsonHelper.cs" />
+    <Compile Include="帮助类\MailHelper.cs" />
+    <Compile Include="帮助类\Md5Algorithm.cs" />
+    <Compile Include="帮助类\RegExpStr.cs" />
+    <Compile Include="帮助类\RSAFromPkcs8.cs" />
+    <Compile Include="帮助类\RSAHelper.cs" />
+    <Compile Include="帮助类\SignHelper.cs" />
+    <Compile Include="帮助类\StringHelper.cs" />
+    <Compile Include="帮助类\ValidateHelper.cs" />
+    <Compile Include="帮助类\WebHelper.cs" />
+    <Compile Include="帮助类\XmlHelper.cs" />
+    <Compile Include="日志\Logger.cs" />
+    <Compile Include="百度统计\BaiduStatistic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="验证类\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

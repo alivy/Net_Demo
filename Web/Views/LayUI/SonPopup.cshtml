@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SonPopup</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(function () {
+            $("#btnsend").click(function () {
+                console.log("点亮A");
+                window.parent.sonsay(1);
+            })
+        })
+       
+    </script>
+</head>
+<body>
+    <div> 
+        <input id="btnsend" type="button"   value="给父页面发送事件" />
+    </div>
+</body>
+</html>
