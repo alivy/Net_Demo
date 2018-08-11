@@ -48,7 +48,7 @@ namespace Utils工具
                 rsa.Clear();
                 return Convert.ToBase64String(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "error";
             }
@@ -100,7 +100,7 @@ namespace Utils工具
                 rsa.Clear();
                 return Encoding.UTF8.GetString(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "error";
             }

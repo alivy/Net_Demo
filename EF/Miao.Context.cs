@@ -9,13 +9,9 @@
 
 namespace Web.Models
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
-    using System.Linq;
-    using System.Data.Objects;
-    
     public partial class MiaoEntities : DbContext
     {
         public MiaoEntities()

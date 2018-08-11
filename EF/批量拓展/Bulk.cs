@@ -89,7 +89,7 @@ namespace EF
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 IsSure = false;
             }

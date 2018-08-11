@@ -76,7 +76,6 @@ namespace MyCore
                 if (value == null)
                 {
                     throw new ArgumentException("为讲对象引用到实例，参数：" + mtype);
-                    break;
                 }
                 string val = value.ToString();
 

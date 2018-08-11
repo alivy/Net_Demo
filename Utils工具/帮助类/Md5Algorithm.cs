@@ -19,9 +19,9 @@ namespace Utils工具
 
         }
 
-        private static Md5Algorithm instance;
+        private static Md5Algorithm instance = GetInstance();
 
-        public static Md5Algorithm getInstance()
+        public static Md5Algorithm GetInstance()
         {
             if (null == instance)
                 return new Md5Algorithm();
@@ -38,12 +38,12 @@ namespace Utils工具
      * @param b 字节数组
      * @return 16进制字串
      */
-        private String byteArrayToHexString(byte[] b)
+        private String ByteArrayToHexString(byte[] b)
         {
             StringBuilder resultSb = new StringBuilder();
             for (int i = 0; i < b.Length; i++)
             {
-                resultSb.Append(byteToHexString(b[i]));
+                resultSb.Append(ByteToHexString(b[i]));
             }
             return resultSb.ToString();
         }
@@ -53,7 +53,7 @@ namespace Utils工具
      * @param b 字节数组
      * @return
      */
-        private String byteToHexString(byte b)
+        private String ByteToHexString(byte b)
         {
             int n = b;
             if (n < 0)
@@ -69,13 +69,13 @@ namespace Utils工具
      * @throws Exception
      * @return String
      */
-        public String md5Digest(byte[] src)
+        public String Md5Digest(byte[] src)
         {
             try
             {
                 // MD5 is 32 bit message digest
                 MD5 md5 = new MD5CryptoServiceProvider();
-                return byteArrayToHexString(md5.ComputeHash(src));
+                return ByteArrayToHexString(md5.ComputeHash(src));
             }
             catch (Exception e)
             {

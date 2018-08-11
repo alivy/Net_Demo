@@ -128,7 +128,7 @@ namespace Test
                     return str;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "";
             }

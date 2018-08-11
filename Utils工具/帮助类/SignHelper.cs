@@ -19,7 +19,9 @@ namespace Utils工具
         /// <returns></returns>
         public static string GetMD5Sign(string data)
         {
+#pragma warning disable CS0618 // 类型或成员已过时
             return System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(data, "MD5");
+#pragma warning restore CS0618 // 类型或成员已过时
         }
 
         /// <summary>
@@ -83,7 +85,7 @@ namespace Utils工具
         /// <returns>签名后字符串</returns>
         public static string GetMd5AlgorithmSign(string content)
         {
-            return Md5Algorithm.getInstance().md5Digest(Encoding.UTF8.GetBytes(content));
+            return Md5Algorithm.GetInstance().Md5Digest(Encoding.UTF8.GetBytes(content));
         }
 
     }

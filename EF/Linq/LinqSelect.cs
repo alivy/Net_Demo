@@ -28,7 +28,7 @@ namespace EF.Linq
                                 join c in db.QQUser_info on u.Id equals c.ID
                                 where !string.IsNullOrEmpty(p.Remark) &
                                 p.UserType_ID ==u.User_Type
-                                select new { User_Name = u.User_Name, User_Pwd = u.User_Pwd, UserType_Name = p.UserType_Name }).ToList();
+                                select new { u.User_Name, u.User_Pwd, p.UserType_Name }).ToList();
             List<dynamic> oneList = new List<dynamic>();  
             foreach (var one in userListTest)
             {
@@ -60,7 +60,7 @@ namespace EF.Linq
                                 //join d in db.partBs on t.partID equals d.partID
                                 //into tempone
                                 //from user in tempone.DefaultIfEmpty()
-                                select new { User_Name = u.User_Name, User_Pwd = u.User_Pwd, UserType_Name = t.UserType_Name }).ToList();
+                                select new { u.User_Name, u.User_Pwd, t.UserType_Name }).ToList();
             List<dynamic> oneList = new List<dynamic>();
             foreach (var one in userListTest)
             {

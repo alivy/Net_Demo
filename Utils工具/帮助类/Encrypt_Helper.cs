@@ -34,8 +34,12 @@ namespace Utils工具
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
             byte[] inputByteArray;
             inputByteArray = Encoding.Default.GetBytes(Text);
+#pragma warning disable CS0618 // 类型或成员已过时
             des.Key = ASCIIEncoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
-            des.IV = ASCIIEncoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
+#pragma warning restore CS0618 // 类型或成员已过时
+#pragma warning disable CS0618 // 类型或成员已过时
+            des.IV = Encoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
+#pragma warning restore CS0618 // 类型或成员已过时
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);
             cs.Write(inputByteArray, 0, inputByteArray.Length);
@@ -86,8 +90,12 @@ namespace Utils工具
                 i = Convert.ToInt32(Text.Substring(x * 2, 2), 16);
                 inputByteArray[x] = (byte)i;
             }
-            des.Key = ASCIIEncoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
-            des.IV = ASCIIEncoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
+#pragma warning disable CS0618 // 类型或成员已过时
+            des.Key = Encoding.ASCII.GetBytes(s: System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
+#pragma warning restore CS0618 // 类型或成员已过时
+#pragma warning disable CS0618 // 类型或成员已过时
+            des.IV = Encoding.ASCII.GetBytes(System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(sKey, "md5").Substring(0, 8));
+#pragma warning restore CS0618 // 类型或成员已过时
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write);
             cs.Write(inputByteArray, 0, inputByteArray.Length);

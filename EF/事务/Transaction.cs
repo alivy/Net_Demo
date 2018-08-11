@@ -17,7 +17,7 @@ namespace Skill_Point
         /// </summary>
         public void ScopeTransaction()
         {
-            TransactionOptions ss = new TransactionOptions();
+            //TransactionOptions ss = new TransactionOptions();
             //new事务时可选两个参数，一个是事务选项，一个是隔离操作选项 
             //TransactionScopeOption一般情况下使用Required重用事务，RequiresNew为创建新事物
             //IsolationLevel为隔离选项，具体参考IsolationLevel枚举说明，可控制数据更新操作权限，
@@ -63,10 +63,12 @@ namespace Skill_Point
                     var SqlTransaction = con.BeginTransaction();
                     try
                     {
-                        var sqlCommand = new SqlCommand();
-                        sqlCommand.Connection = con;
-                        sqlCommand.Transaction = SqlTransaction;
-                        sqlCommand.CommandText = @"update User_info set User_name = 'xpy0929' where ID in (1,2,3) ";
+                        var sqlCommand = new SqlCommand
+                        {
+                            Connection = con,
+                            Transaction = SqlTransaction,
+                            CommandText = @"update User_info set User_name = 'xpy0929' where ID in (1,2,3) "
+                        };
                         sqlCommand.ExecuteNonQuery();
 
                         //添加事务对象 

@@ -80,7 +80,7 @@ namespace Type_Conver
 
         /// <remarks></remarks>
 
-        public static List<T> xmlToList<T>(string xml)
+        public static List<T> XmlToList<T>(string xml)
         {
 
             Type tp = typeof(T);
@@ -173,14 +173,14 @@ namespace Type_Conver
 
             }
 
-            catch (XmlException ex)
+            catch (XmlException)
             {
 
                 throw new ArgumentException("不是有效的XML字符串", "xml");
 
             }
 
-            catch (InvalidCastException e)
+            catch (InvalidCastException)
             {
 
                 throw new ArgumentException("指定的数据类型不匹配", "T");
@@ -210,7 +210,7 @@ namespace Type_Conver
 
         /// <remarks></remarks>
 
-        public static string listToXml<T>(List<T> list)
+        public static string ListToXml<T>(List<T> list)
         {
 
             Type tp = typeof(T);

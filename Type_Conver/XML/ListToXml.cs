@@ -27,7 +27,7 @@ namespace Type_Conver
                 list.Add(new UserModel());
                 list.Add(new UserModel());
 
-                string xml = Toxml.listToXml(list);
+                string xml = Toxml.ListToXml(list);
 
                 Toxml.FileToXml(list);
             }

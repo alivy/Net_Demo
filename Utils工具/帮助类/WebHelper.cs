@@ -359,8 +359,7 @@ namespace Utils工具
             if (HttpContext.Current.Request.Browser.IsMobileDevice)
                 return true;
 
-            bool isTablet = false;
-            if (bool.TryParse(HttpContext.Current.Request.Browser["IsTablet"], out isTablet) && isTablet)
+            if (bool.TryParse(HttpContext.Current.Request.Browser["IsTablet"], out bool isTablet) && isTablet)
                 return true;
 
             return false;
@@ -567,7 +566,7 @@ namespace Utils工具
                                 {
                                     return reader.ReadToEnd();
                                 }
-                                catch (Exception ex)
+                                catch (Exception )
                                 {
                                     return "close";
                                 }
@@ -578,7 +577,7 @@ namespace Utils工具
                 }
 
             }
-            catch (WebException ex)
+            catch (WebException )
             {
                 return "error";
             }
@@ -613,7 +612,7 @@ namespace Utils工具
                     trustLevel = level;
                     break;
                 }
-                catch (SecurityException ex)
+                catch (SecurityException )
                 {
                     continue;
                 }
@@ -650,7 +649,7 @@ namespace Utils工具
                 reader = new StreamReader(wResponse.GetResponseStream(), Encoding.UTF8);
                 result = reader.ReadToEnd();
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
