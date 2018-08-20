@@ -19,9 +19,6 @@ namespace EF
 		{
 			using (var db = DBContext.CreateContext())
 			{
-
-
-
                 return db.User_info.Where(u => u.User_Name.EndsWith("张三")).Update(u => new User_info { Remark = u.User_Name + "批量更新" });
             }
 		}

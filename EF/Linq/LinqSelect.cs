@@ -39,13 +39,17 @@ namespace EF.Linq
                 oneList.Add(dyObject);
             }
 
+           
+
+
+
             //userListTest.Select(m =>  new ExpandoObject
             //{
             //    userName = m.User_Name,
             //    userPwd = m.User_Pwd,
             //    userTypeName = m.UserType_Name,
             //});
-          
+
             oneList.ForEach(a => Console.WriteLine(String.Format("姓名：{0} ,密码 {1},用户类型名称 {2},", a.userName, a.userPwd, a.userTypeName)));
            
         }

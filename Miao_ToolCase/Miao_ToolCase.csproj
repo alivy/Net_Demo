@@ -70,6 +70,10 @@
       <Project>{61641786-162c-4058-8929-167b3324df3e}</Project>
       <Name>Knowledge_Point知识点</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Skill_Point\Skill_Point技能点.csproj">
+      <Project>{1e3943b2-b43f-45e9-a578-12df1d6ae2d5}</Project>
+      <Name>Skill_Point技能点</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Type_Conver\Type_Conver类型转换.csproj">
       <Project>{1431a7f9-8717-412a-b4ab-274ab6142c37}</Project>
       <Name>Type_Conver类型转换</Name>

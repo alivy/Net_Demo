@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Cache缓存\CacheHelp.cs" />
+    <Compile Include="委托\ActionEntrust.cs" />
     <Compile Include="委托\Entrust.cs" />
     <Compile Include="委托\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -66,8 +67,12 @@
     <Compile Include="帮助类\ValidateHelper.cs" />
     <Compile Include="帮助类\WebHelper.cs" />
     <Compile Include="帮助类\XmlHelper.cs" />
+    <Compile Include="断点续传\BreakPointPost.cs" />
+    <Compile Include="断点续传\BreakPoint.cs" />
     <Compile Include="日志\Logger.cs" />
     <Compile Include="百度统计\BaiduStatistic.cs" />
+    <Compile Include="网络操作\HttpMethods.cs" />
+    <Compile Include="网络操作\Net.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

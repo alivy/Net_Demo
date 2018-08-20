@@ -2,7 +2,9 @@
 using EF;
 using EF.Linq;
 using Knowledge_Point知识点.MEF;
+using Skill_Point.委托;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
@@ -15,21 +17,20 @@ using System.Xml;
 using System.Xml.Serialization;
 using Type_Conver;
 using Utils工具;
-
+using Utils工具.网络操作;
 
 namespace Miao_ToolCase
 {
-    public class response
+    public class Response
     {
-        public string flag { get; set; }
-        public string code { get; set; }
+        public string Flag { get; set; }
+        public string Code { get; set; }
 
-        public string message { get; set; }
-
+        public string Message { get; set; }
         /// <summary>
         /// 仓储系统入库单编码
         /// </summary>
-        public string entryOrderId { get; set; }
+        public string EntryOrderId { get; set; }
     }
 
     public class Department
@@ -71,18 +72,33 @@ namespace Miao_ToolCase
         /// </summary>    
         public int DepartmentId { get; set; }
     }
+
+
+
+
+
+
     public class Program
     {
-
-
-
-
-
-
-
         static void Main(string[] args)
         {
-           
+
+
+            string ip = Net.Ip;
+            string Host = Net.Host;
+
+            //Console.WriteLine("主线程开始" );
+
+            //new ActionEntrust().Test();
+            //Console.WriteLine("主线程结束");
+            //int type = GetEnumValue(typeof(Page), "page2");
+            //var partialView = Enum.GetName(typeof(Page), type);
+            //List<int> list = new List<int>() { 1,2,3,4};
+            //List<int> slidt = new List<int>() { 1, 2, 3, 5 };
+            //List<int> Result = list.Union(slidt).ToList();          //剔除重复项
+            //Result = list.Concat(slidt).ToList();          //保留重复项
+            //string json = string.Join(",", list);
+
 
 
 
@@ -115,7 +131,7 @@ namespace Miao_ToolCase
             //List<IDCardNumber> ss = IDCardNumber.Radom(50);
 
 
-            var card = IDCardNumber.GenPinCode();
+            //var card = IDCardNumber.GenPinCode();
             //var OverdueDay =  DateTime.Now.CompareTo(DateTime.Now.AddDays(-5));
             //bool Is_sure = false;
             //do
@@ -156,6 +172,39 @@ namespace Miao_ToolCase
         }
 
 
+
+        public static int GetEnumValue(Type enumType, string enumName)
+        {
+            try
+            {
+                if (!enumType.IsEnum)
+                    throw new ArgumentException("enumType必须是枚举类型");
+                var values = Enum.GetValues(enumType);
+                var ht = new Hashtable();
+                foreach (var val in values)
+                {
+                    ht.Add(Enum.GetName(enumType, val), val);
+                }
+                return (int)ht[enumName];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        enum Page
+        {
+            page1 = 99,
+            page2 = 2,
+            page3 = 1,
+            page4 = 98,
+            page5 = 4,
+            page6 = -1,
+            page7 = -2,
+            page9 = 2,
+            page8 = -3,
+        }
+
         public static string XmlSerialize<T>(T obj)
         {
 
@@ -182,8 +231,8 @@ namespace Miao_ToolCase
                 serializer.Serialize(sw, obj);
 
                 sw.Close();
-               OutputXmlString =  Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(sw.ToString())); ;
-               return OutputXmlString;
+                OutputXmlString = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(sw.ToString())); ;
+                return OutputXmlString;
             }
         }
 

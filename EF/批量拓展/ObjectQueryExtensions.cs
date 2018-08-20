@@ -27,8 +27,7 @@ namespace EF
                 query = queryUnwrapper.Unwrap(query);
 
             // first try direct cast
-            var objectQuery = query as ObjectQuery<TEntity>;
-            if (objectQuery != null)
+            if (query is ObjectQuery<TEntity> objectQuery)
                 return objectQuery;
 
             // next try case to DbQuery
@@ -64,8 +63,7 @@ namespace EF
                 query = queryUnwrapper.Unwrap(query);
 
             // first try direct cast
-            var objectQuery = query as ObjectQuery;
-            if (objectQuery != null)
+            if (query is ObjectQuery objectQuery)
                 return objectQuery;
 
             // next try case to DbQuery

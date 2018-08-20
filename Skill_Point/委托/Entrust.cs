@@ -32,9 +32,8 @@ namespace Skill_Point
         //执行事件
         public void Execute(string name)
         {
-            if (MyEvent != null)
-                //执行事件
-                MyEvent(name);
+            //执行事件
+            MyEvent?.Invoke(name);
         }
         #endregion
 
