@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection,Microsoft.Practices.Unity.Configuration" />
+  </configSections>
+  <unity>
+    <!--定义类型别名-->
+    <aliases>
+      <add alias="IExampleClass" type="UnityIocTest.IExampleClass,UnityIocTest" />
+      <add alias="ExampleClass" type="UnityIocTest.ExampleClass,UnityIocTest" />
+    </aliases>
+    <!--容器-->
+    <container name="MyContainer">
+      <!--映射关系-->
+      <!--<register type="IExampleClass"  mapTo="ExampleClass"></register>-->
+      <register type="UnityIocTest.IExampleClass,UnityIocTest"  mapTo="UnityIocTest.ExampleClass,UnityIocTest"></register>
+    </container>
+  </unity>
+</configuration>

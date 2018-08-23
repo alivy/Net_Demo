@@ -2,12 +2,15 @@
 using EF;
 using EF.Linq;
 using Knowledge_Point知识点.MEF;
+using Knowledge_Point知识点.Unity;
+using Microsoft.Practices.Unity.Configuration;
 using Skill_Point.委托;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -82,10 +85,49 @@ namespace Miao_ToolCase
     {
         static void Main(string[] args)
         {
+            try
+            {
+                //注册 log4net
+                log4net.Config.XmlConfigurator.Configure(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4config\\log.xml"));
+                //var a = new Log();
+                TaskFactory taskFactory = new TaskFactory();
+                for (int i = 0; i < 10; i++)
+                {
+                    Action act = () => LoggerHelper.Error("当前循环为" + i.ToString());
+                    //taskFactory.StartNew(act);
+                    new Task(act).Start();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
 
-            string ip = Net.Ip;
-            string Host = Net.Host;
+
+
+            //TaskFactory taskFactory = new TaskFactory();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Action act = () => LoggerHelper.Error("当前循环为"+i.ToString()); 
+            //    //taskFactory.StartNew(act);
+            //    new Task(act).Start();
+            //}
+
+
+            //var a = new Log();
+
+
+            //var dao = UnitySingleton.GetInstanceDAL<DIExampleClass>();
+            //dao.DoWork();
+            //Console.ReadLine();
+
+            //string ip = Net.Ip;
+            //string Host = Net.Host;
+            //string myip = "113.116.77.4";
+            //string GetLocation = Net.GetLocation(myip);
+            //string Browser = Net.Browser;
+
 
             //Console.WriteLine("主线程开始" );
 

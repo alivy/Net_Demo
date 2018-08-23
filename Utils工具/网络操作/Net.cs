@@ -154,8 +154,8 @@ namespace Utils工具.网络操作
                 {
                     string url = "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query=" + ip + "&resource_id=6006&ie=utf8&oe=gbk&format=json";
                     res = HttpMethods.HttpGet(url, Encoding.GetEncoding("GBK"));
-                    var resjson = res == null ? default(obj) : JsonConvert.DeserializeObject<obj>(res);
-                    res = resjson.data[0].location;
+                    var resjson = res == null ? default(Obj) : JsonConvert.DeserializeObject<Obj>(res);
+                    res = resjson.Data[0].location;
                 }
                 catch
                 {
@@ -166,11 +166,11 @@ namespace Utils工具.网络操作
             /// <summary>
             /// 百度接口
             /// </summary>
-            public class obj
+            public class Obj
             {
-                public List<dataone> data { get; set; }
+                public List<Dataone> Data { get; set; }
             }
-            public class dataone
+            public class Dataone
             {
                 public string location { get; set; }
             }
