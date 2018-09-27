@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miao_ToolCase", "Miao_ToolCase\Miao_ToolCase.csproj", "{8B3FF924-A6CC-4E4D-9ED1-1A4DF8E9FD6D}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelForm", "ModelForm\ModelForm.csproj", "{88917395-C58E-4807-94A8-A566B1CCD34F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{D611735D-B708-419C-B139-D39F28DAC9FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTest", "MyTest\MyTest.csproj", "{4EE42FAA-468B-49B5-A940-57C10A3AA72A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,8 +93,15 @@ Global
 		{D611735D-B708-419C-B139-D39F28DAC9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D611735D-B708-419C-B139-D39F28DAC9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D611735D-B708-419C-B139-D39F28DAC9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE42FAA-468B-49B5-A940-57C10A3AA72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE42FAA-468B-49B5-A940-57C10A3AA72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE42FAA-468B-49B5-A940-57C10A3AA72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE42FAA-468B-49B5-A940-57C10A3AA72A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {062B60E2-818C-4862-B3CD-DE5519639107}
 	EndGlobalSection
 EndGlobal

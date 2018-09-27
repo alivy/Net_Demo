@@ -42,6 +42,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,10 +73,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Cookie和Session\Distinction.cs" />
     <Compile Include="MEF\MEF_Realize.cs" />
     <Compile Include="MEF\MusicBook.cs" />
     <Compile Include="MEF\IBookService.cs" />
+    <Compile Include="MySocket\TcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MySocket\ServerHelper.cs" />
+    <Compile Include="MySocket\SocketClient.cs" />
     <Compile Include="Unity\DIExampleClass.cs" />
     <Compile Include="Unity\ExampleClass.cs" />
     <Compile Include="Unity\IExampleClass.cs" />

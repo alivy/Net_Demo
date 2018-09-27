@@ -2,6 +2,7 @@
 using EF;
 using EF.Linq;
 using Knowledge_Point知识点.MEF;
+using Knowledge_Point知识点.MySocket;
 using Knowledge_Point知识点.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Skill_Point.委托;
@@ -13,6 +14,8 @@ using System.ComponentModel.Composition.Hosting;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +27,25 @@ using Utils工具.网络操作;
 
 namespace Miao_ToolCase
 {
+    /// <summary>
+    /// 扩展类
+    /// </summary>
+    public static class Extension
+    {
+        public static int StringToInt32(this string str)
+        {
+            int num = -1;
+            if (int.TryParse(str, out num))
+            {
+                return num;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+
     public class Response
     {
         public string Flag { get; set; }
@@ -85,23 +107,54 @@ namespace Miao_ToolCase
     {
         static void Main(string[] args)
         {
-            try
-            {
-                //注册 log4net
-                log4net.Config.XmlConfigurator.Configure(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4config\\log.xml"));
-                //var a = new Log();
-                TaskFactory taskFactory = new TaskFactory();
-                for (int i = 0; i < 10; i++)
-                {
-                    Action act = () => LoggerHelper.Error("当前循环为" + i.ToString());
-                    //taskFactory.StartNew(act);
-                    new Task(act).Start();
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            new LinqSelect().INNER_JOIN();
+
+            //var join = string.Join(",", "1,3,5,7,9");
+            ////
+            //int[] selects = Array.ConvertAll<string, int>(join.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries), s => s.StringToInt32());  //string分割转int[] 
+            //var ids = join.ToCharArray();
+
+
+            ////var tcp = new Knowledge_Point知识点.MySocket.TcpClient();
+
+            //Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //server.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 200)); // 绑定IP+端口
+            //server.Listen(10); // 开始监听
+
+            //Console.WriteLine("等待连接...");
+
+            //AcceptHelper ca = new AcceptHelper() { Bytes = new byte[2048] };
+            //IAsyncResult res = server.BeginAccept(new AsyncCallback(ca.AcceptTarget), server);
+
+            //string str = string.Empty;
+            //while (str != "exit")
+            //{
+            //    str = Console.ReadLine();
+            //    Console.WriteLine("ME: " + DateTimeOffset.Now.ToString("G"));
+            //    ClientManager.SendMsgToClientList(str);
+            //}
+            //ClientManager.Close();
+            //server.Close();
+
+
+
+            //try
+            //{
+            //    //注册 log4net
+            //    log4net.Config.XmlConfigurator.Configure(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4config\\log.xml"));
+            //    //var a = new Log();
+            //    TaskFactory taskFactory = new TaskFactory();
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Action act = () => LoggerHelper.Error("当前循环为" + i.ToString());
+            //        //taskFactory.StartNew(act);
+            //        new Task(act).Start();
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
 
 
 
@@ -214,7 +267,7 @@ namespace Miao_ToolCase
         }
 
 
-
+      
         public static int GetEnumValue(Type enumType, string enumName)
         {
             try

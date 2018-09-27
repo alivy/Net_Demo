@@ -92,8 +92,7 @@ namespace Knowledge_Point知识点.MEF
                 foreach (var s in ServiceC)
                 {
                     //针对指定了契约名但没指定对象信息
-                    var ss=(IBookService)s;
-                    Console.WriteLine(ss.GetBookName());
+                    Console.WriteLine(s.GetBookName());
                 }
                 Console.WriteLine("***********有契约名的多个对象注入匹配***********");
             }

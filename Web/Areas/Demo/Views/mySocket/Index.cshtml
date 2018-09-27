@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script>
+            var mySocket;
+            function Star() {
+                mySocket = new WebSocket("ws://127.0.0.1:200", "my-custom-protocol");
+                mySocket.onopen = function Open() {
+                    Show("连接打开");
+                };
+                mySocket.onmessage = function (evt) {
+                    Show(evt.data);
+                };
+                mySocket.onclose = function Close() {
+                    Show("连接关闭");
+                    mySocket.close();
+                };
+            }
+            function Send() {
+                var content = document.getElementById("content").value;
+                Show(content);
+                mySocket.send(content);
+            }
+            function Show(msg) {
+                var roomContent = document.getElementById("roomContent");
+                roomContent.innerHTML = msg + "<br/>" + roomContent.innerHTML;
+            }
+        </script>
+    @*<script type="text/javascript">
+        var start = function () {
+            var inc = document.getElementById('incomming');
+            var wsImpl = window.WebSocket || window.MozWebSocket;
+            var form = document.getElementById('sendForm');
+            var input = document.getElementById('sendText');
+
+            inc.innerHTML += "connecting to server ..<br/>";
+
+            // 创建新的websocket新连接端口为7181
+            window.ws = new wsImpl('ws://127.0.0.1:9110');
+
+            // 当数据从服务器服务中心发送后，继续向下运行过程
+            ws.onmessage = function (evt) {
+                inc.innerHTML += evt.data + '<br/>';
+            };
+
+            // 当链接对象找到服务端成功对接后，提示正常打开
+            ws.onopen = function () {
+                inc.innerHTML += '.. connection open<br/>';
+            };
+
+            // 当链接对象未找找到服务端成功对接后，提示打开失败，别切单项关闭
+            ws.onclose = function () {
+                inc.innerHTML += '.. connection closed<br/>';
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var val = input.value;
+                ws.send(val);
+                input.value = "";
+            });
+
+        }
+        window.onload = start;
+    </script>*@
+</head>
+<body>
+    <div id="roomContent" style="width: 500px; height: 200px; overflow: hidden; border: 2px solid #686868;
+            margin-bottom: 10px; padding: 10px 0px 0px 10px;">
+        </div>
+        <div>
+            <textarea id="content" cols="50" rows="3" style="padding: 10px 0px 0px 10px;"></textarea>
+        </div>
+        <input type="button" value="Connection" onclick="Star()" />
+        <input type="button" value="Send" onclick="Send()" />
+
+
+    @*<form id="sendForm">
+
+        <input id="sendText" placeholder="Text to send" />
+
+    </form>
+
+    <pre id="incomming"></pre>*@
+</body>
+</html>

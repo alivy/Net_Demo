@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EF.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
@@ -17,18 +19,21 @@ namespace EF.Linq
         public void INNER_JOIN()
         {
 
-
-
-            string sql = "SELECT User_Name as Name  FROM User_info";
-            var Tables = db.Database.SqlQuery<dynamic>(sql).ToList();
-
-            Tables.ForEach(a => Console.WriteLine(String.Format("姓名：{0} ,密码 {1},用户类型名称 {2},", a.Name, a.Name, a.Name)));
+            var str = new string[] {"更新用户名0","更新用户名1","更新用户名2","更新用户名3","更新用户名4","更新用户名5","更新用户名7"};
+            var UserNameList = db.User_info.Where(x => str.Contains(x.User_Name)).ToList();
+            //var abc = db.User_info.SqlQuery("SELECT *   FROM User_info").ToList();
+            //string sql = "SELECT User_Name as Name  FROM User_info";
+            //var Tables = db.Database.SqlQuery<dynamic>(sql).ToList();
+            //Tables.ForEach(a => Console.WriteLine(String.Format("姓名：{0} ,密码 {1},用户类型名称 {2},", a.Name, a.Name, a.Name)));
             var userListTest = (from u in db.User_info
                                 join p in db.User_Type on u.User_Type equals p.UserType_ID 
                                 join c in db.QQUser_info on u.Id equals c.ID
                                 where !string.IsNullOrEmpty(p.Remark) &
                                 p.UserType_ID ==u.User_Type
                                 select new { u.User_Name, u.User_Pwd, p.UserType_Name }).ToList();
+
+
+           
             List<dynamic> oneList = new List<dynamic>();  
             foreach (var one in userListTest)
             {
@@ -38,11 +43,6 @@ namespace EF.Linq
                 dyObject.userTypeName = one.UserType_Name;
                 oneList.Add(dyObject);
             }
-
-           
-
-
-
             //userListTest.Select(m =>  new ExpandoObject
             //{
             //    userName = m.User_Name,
@@ -65,6 +65,11 @@ namespace EF.Linq
                                 //into tempone
                                 //from user in tempone.DefaultIfEmpty()
                                 select new { u.User_Name, u.User_Pwd, t.UserType_Name }).ToList();
+            DbRawSqlQuery ss = db.Database.SqlQuery(typeof(User_info), "");
+            DbRawSqlQuery<User_info> ss1 = db.Database.SqlQuery<User_info>("");
+
+            var abc = db.User_info.SqlQuery("").ToList();
+
             List<dynamic> oneList = new List<dynamic>();
             foreach (var one in userListTest)
             {
