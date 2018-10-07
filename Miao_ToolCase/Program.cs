@@ -4,7 +4,7 @@ using EF.Linq;
 using Knowledge_Point知识点.MEF;
 using Knowledge_Point知识点.MySocket;
 using Knowledge_Point知识点.Unity;
-using Microsoft.Practices.Unity.Configuration;
+//using Microsoft.Practices.Unity.Configuration;
 using Skill_Point.委托;
 using System;
 using System.Collections;
