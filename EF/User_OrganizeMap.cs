@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Models
+namespace EF
 {
     using System;
     using System.Collections.Generic;

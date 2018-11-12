@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EF.Model
 {
-    public  class User_Organize
+    public class User_Organize
     {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)] //不自动增长

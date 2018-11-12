@@ -13,9 +13,9 @@ namespace Utils工具
 {
     public class LoggerHelper
     {
-        static readonly log4net.ILog loginfo = log4net.LogManager.GetLogger("loginfo");
-        static readonly log4net.ILog logerror = log4net.LogManager.GetLogger("logerror");
-        static readonly log4net.ILog logmonitor = log4net.LogManager.GetLogger("logmonitor");
+        static readonly ILog loginfo =LogManager.GetLogger("loginfo");
+        static readonly ILog logerror =LogManager.GetLogger("logerror");
+        static readonly ILog logmonitor = LogManager.GetLogger("logmonitor");
         static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public static void Error(string ErrorMsg, Exception ex = null)

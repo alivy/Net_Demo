@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Skill_Point</RootNamespace>
     <AssemblyName>Skill_Point</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,8 +30,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.29.3\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Translate, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Translate.3.3.1.24\lib\net45\AWSSDK.Translate.dll</HintPath>
+    </Reference>
+    <Reference Include="Elasticsearch.Net, Version=6.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elasticsearch.Net.6.2.0\lib\net46\Elasticsearch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="gozeer.translate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\gozeer.translate.1.0.0.5\lib\gozeer.translate.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest, Version=6.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NEST.6.2.0\lib\net46\Nest.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -44,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Cache缓存\CacheHelp.cs" />
+    <Compile Include="Elasticsearch\ElasticsearchGet.cs" />
+    <Compile Include="Elasticsearch\Student.cs" />
     <Compile Include="委托\ActionEntrust.cs" />
     <Compile Include="委托\Entrust.cs" />
     <Compile Include="委托\Model.cs" />
@@ -56,12 +76,70 @@
     <Compile Include="异步多线程\异步多线程演变.Designer.cs">
       <DependentUpon>异步多线程演变.cs</DependentUpon>
     </Compile>
+    <Compile Include="队列\ConcurrentQueueHelp.cs" />
+    <Compile Include="队列\QueueHelep.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Utils工具\Utils工具.csproj">
+      <Project>{1811452e-91f3-43fb-88eb-b7e7bc5f07ab}</Project>
+      <Name>Utils工具</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="异步多线程\异步多线程演变.resx">
       <DependentUpon>异步多线程演变.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config\elasticsearch.yml" />
+    <None Include="config\logging.yml" />
+    <None Include="lib\sigar\libsigar-amd64-freebsd-6.so" />
+    <None Include="lib\sigar\libsigar-amd64-linux.so" />
+    <None Include="lib\sigar\libsigar-amd64-solaris.so" />
+    <None Include="lib\sigar\libsigar-ia64-linux.so" />
+    <None Include="lib\sigar\libsigar-sparc-solaris.so" />
+    <None Include="lib\sigar\libsigar-sparc64-solaris.so" />
+    <None Include="lib\sigar\libsigar-universal-macosx.dylib" />
+    <None Include="lib\sigar\libsigar-universal64-macosx.dylib" />
+    <None Include="lib\sigar\libsigar-x86-freebsd-5.so" />
+    <None Include="lib\sigar\libsigar-x86-freebsd-6.so" />
+    <None Include="lib\sigar\libsigar-x86-linux.so" />
+    <None Include="lib\sigar\libsigar-x86-solaris.so" />
+    <None Include="lib\sigar\sigar-x86-winnt.lib" />
+    <None Include="packages.config" />
+    <None Include="README.textile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.Translate.3.3.1.24\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\antlr-runtime-3.5.jar" />
+    <Content Include="lib\asm-4.1.jar" />
+    <Content Include="lib\asm-commons-4.1.jar" />
+    <Content Include="lib\elasticsearch-1.4.2.jar" />
+    <Content Include="lib\groovy-all-2.3.2.jar" />
+    <Content Include="lib\jna-4.1.0.jar" />
+    <Content Include="lib\jts-1.13.jar" />
+    <Content Include="lib\log4j-1.2.17.jar" />
+    <Content Include="lib\lucene-analyzers-common-4.10.2.jar" />
+    <Content Include="lib\lucene-core-4.10.2.jar" />
+    <Content Include="lib\lucene-expressions-4.10.2.jar" />
+    <Content Include="lib\lucene-grouping-4.10.2.jar" />
+    <Content Include="lib\lucene-highlighter-4.10.2.jar" />
+    <Content Include="lib\lucene-join-4.10.2.jar" />
+    <Content Include="lib\lucene-memory-4.10.2.jar" />
+    <Content Include="lib\lucene-misc-4.10.2.jar" />
+    <Content Include="lib\lucene-queries-4.10.2.jar" />
+    <Content Include="lib\lucene-queryparser-4.10.2.jar" />
+    <Content Include="lib\lucene-sandbox-4.10.2.jar" />
+    <Content Include="lib\lucene-spatial-4.10.2.jar" />
+    <Content Include="lib\lucene-suggest-4.10.2.jar" />
+    <Content Include="lib\sigar\sigar-1.6.4.jar" />
+    <Content Include="lib\sigar\sigar-amd64-winnt.dll" />
+    <Content Include="lib\sigar\sigar-x86-winnt.dll" />
+    <Content Include="lib\spatial4j-0.4.1.jar" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="NOTICE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

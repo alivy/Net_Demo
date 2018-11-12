@@ -12,6 +12,22 @@
         <EntityTypeShape EntityType="MiaoModel.User_Type" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="MiaoModel.FK_User_info" ManuallyRouted="false" />
         <AssociationConnector Association="MiaoModel.FK_User_OrganizeMap_User_OrganizeMap" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Area" Width="1.5" PointX="5.75" PointY="5" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_DbBackup" Width="1.5" PointX="7.75" PointY="1" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_FilterIP" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Items" Width="1.5" PointX="2.75" PointY="8" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_ItemsDetail" Width="1.5" PointX="7.75" PointY="6" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Log" Width="1.5" PointX="9.75" PointY="1" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Module" Width="1.5" PointX="4.75" PointY="10" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_ModuleButton" Width="1.5" PointX="9.75" PointY="6" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_ModuleForm" Width="1.5" PointX="11.75" PointY="1" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_ModuleFormInstance" Width="1.5" PointX="11.75" PointY="6" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Organize" Width="1.5" PointX="6.75" PointY="12" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_Role" Width="1.5" PointX="11.75" PointY="10" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_RoleAuthorize" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_User" Width="1.5" PointX="8.75" PointY="13" />
+        <EntityTypeShape EntityType="MiaoModel.sys_User_Auths" Width="1.5" PointX="13.75" PointY="1" />
+        <EntityTypeShape EntityType="MiaoModel.Sys_UserLogOn" Width="1.5" PointX="13.75" PointY="4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

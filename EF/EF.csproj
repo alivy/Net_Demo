@@ -33,6 +33,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.29.3\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Translate, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Translate.3.3.1.24\lib\net45\AWSSDK.Translate.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -41,6 +47,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="gozeer.translate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\gozeer.translate.1.0.0.5\lib\gozeer.translate.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -101,6 +110,54 @@
     <Compile Include="QQUser_info.cs">
       <DependentUpon>Miao.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys_Area.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_DbBackup.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_FilterIP.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Items.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ItemsDetail.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Log.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Module.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleButton.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleForm.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleFormInstance.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Organize.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Role.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_RoleAuthorize.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_User.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_UserLogOn.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_User_Auths.cs">
+      <DependentUpon>Miao.tt</DependentUpon>
+    </Compile>
     <Compile Include="User_info.cs">
       <DependentUpon>Miao.tt</DependentUpon>
     </Compile>
@@ -158,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.Translate.3.3.1.24\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

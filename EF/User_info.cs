@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Models
+namespace EF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User_info
     {
+        [Key]
         public int Id { get; set; }
         public string UserID { get; set; }
         public string User_Name { get; set; }
         public string User_Pwd { get; set; }
         public Nullable<int> User_Type { get; set; }
         public string Remark { get; set; }
+        public Nullable<int> UserRole { get; set; }
     }
 }

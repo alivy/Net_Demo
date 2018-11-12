@@ -7,15 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Models
+namespace EF
 {
     using System;
     using System.Collections.Generic;
-
     
     public partial class QQUser_info
     {
-        
         public int ID { get; set; }
         public string openId { get; set; }
         public string nickname { get; set; }

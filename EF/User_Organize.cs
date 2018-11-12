@@ -7,14 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Models
+namespace EF
 {
     using System;
     using System.Collections.Generic;
     
     public partial class User_Organize
     {
-
         public string OrganizeCode { get; set; }
         public string OrganizeName { get; set; }
         public string ParentCode { get; set; }

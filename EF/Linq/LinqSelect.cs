@@ -82,6 +82,25 @@ namespace EF.Linq
             oneList.ForEach(a => Console.WriteLine(String.Format("姓名：{0} ,密码 {1},用户类型名称 {2},", a.userName, a.userPwd, a.userTypeName)));
         }
 
-     
+        public void MvcPageList()
+        {
+            var model = db.User_info.Select(GetExamPagerModelByJuanZi).Where(x => x != null).OrderByDescending(s => s.UserID).Skip(100).ToList();
+        }
+
+        private User_info GetExamPagerModelByJuanZi(User_info juanZiGroup)
+        {
+            if (juanZiGroup == null)
+            {
+                return null;
+            }
+
+            return new User_info
+            {
+                Id = juanZiGroup.Id,
+                UserID = juanZiGroup.UserID,
+                User_Name = juanZiGroup.User_Name + 1,
+                User_Pwd = juanZiGroup.User_Pwd + "测试"
+            };
+        }
     }
 }

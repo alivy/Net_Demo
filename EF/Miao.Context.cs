@@ -7,11 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Models
+namespace EF
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
+    
     public partial class MiaoEntities : DbContext
     {
         public MiaoEntities()
@@ -19,21 +22,13 @@ namespace Web.Models
         {
         }
 
-
-        #region 创建DBContext
-        /// <summary>
-        /// 创建DBContext
-        /// </summary>
-        /// <returns></returns>
         public static MiaoEntities CreateContext()
         {
             return new MiaoEntities();
         }
-        #endregion
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //throw new UnintentionalCodeFirstException();
+            throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<QQUser_info> QQUser_info { get; set; }
@@ -41,47 +36,63 @@ namespace Web.Models
         public virtual DbSet<User_Organize> User_Organize { get; set; }
         public virtual DbSet<User_OrganizeMap> User_OrganizeMap { get; set; }
         public virtual DbSet<User_Type> User_Type { get; set; }
+        public virtual DbSet<Sys_Area> Sys_Area { get; set; }
+        public virtual DbSet<Sys_DbBackup> Sys_DbBackup { get; set; }
+        public virtual DbSet<Sys_FilterIP> Sys_FilterIP { get; set; }
+        public virtual DbSet<Sys_Items> Sys_Items { get; set; }
+        public virtual DbSet<Sys_ItemsDetail> Sys_ItemsDetail { get; set; }
+        public virtual DbSet<Sys_Log> Sys_Log { get; set; }
+        public virtual DbSet<Sys_Module> Sys_Module { get; set; }
+        public virtual DbSet<Sys_ModuleButton> Sys_ModuleButton { get; set; }
+        public virtual DbSet<Sys_ModuleForm> Sys_ModuleForm { get; set; }
+        public virtual DbSet<Sys_ModuleFormInstance> Sys_ModuleFormInstance { get; set; }
+        public virtual DbSet<Sys_Organize> Sys_Organize { get; set; }
+        public virtual DbSet<Sys_Role> Sys_Role { get; set; }
+        public virtual DbSet<Sys_RoleAuthorize> Sys_RoleAuthorize { get; set; }
+        public virtual DbSet<Sys_User> Sys_User { get; set; }
+        public virtual DbSet<sys_User_Auths> sys_User_Auths { get; set; }
+        public virtual DbSet<Sys_UserLogOn> Sys_UserLogOn { get; set; }
     
         [DbFunction("MiaoEntities", "fn_split")]
-        //public virtual IQueryable<fn_split_Result> fn_split(string p_str, string p_split)
-        //{
-        //    var p_strParameter = p_str != null ?
-        //        new ObjectParameter("p_str", p_str) :
-        //        new ObjectParameter("p_str", typeof(string));
+        public virtual IQueryable<fn_split_Result> fn_split(string p_str, string p_split)
+        {
+            var p_strParameter = p_str != null ?
+                new ObjectParameter("p_str", p_str) :
+                new ObjectParameter("p_str", typeof(string));
     
-        //    var p_splitParameter = p_split != null ?
-        //        new ObjectParameter("p_split", p_split) :
-        //        new ObjectParameter("p_split", typeof(string));
+            var p_splitParameter = p_split != null ?
+                new ObjectParameter("p_split", p_split) :
+                new ObjectParameter("p_split", typeof(string));
     
-        //    return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_split_Result>("[MiaoEntities].[fn_split](@p_str, @p_split)", p_strParameter, p_splitParameter);
-        //}
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_split_Result>("[MiaoEntities].[fn_split](@p_str, @p_split)", p_strParameter, p_splitParameter);
+        }
     
         public virtual int DB_Cursor()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DB_Cursor");
         }
     
-        //public virtual ObjectResult<DB_Pivot_Result> DB_Pivot()
-        //{
-        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DB_Pivot_Result>("DB_Pivot");
-        //}
+        public virtual ObjectResult<DB_Pivot_Result> DB_Pivot()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DB_Pivot_Result>("DB_Pivot");
+        }
     
-        //public virtual int PR_Sum(Nullable<int> a, Nullable<int> b, ObjectParameter sum)
-        //{
-        //    var aParameter = a.HasValue ?
-        //        new ObjectParameter("a", a) :
-        //        new ObjectParameter("a", typeof(int));
+        public virtual int PR_Sum(Nullable<int> a, Nullable<int> b, ObjectParameter sum)
+        {
+            var aParameter = a.HasValue ?
+                new ObjectParameter("a", a) :
+                new ObjectParameter("a", typeof(int));
     
-        //    var bParameter = b.HasValue ?
-        //        new ObjectParameter("b", b) :
-        //        new ObjectParameter("b", typeof(int));
+            var bParameter = b.HasValue ?
+                new ObjectParameter("b", b) :
+                new ObjectParameter("b", typeof(int));
     
-        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_Sum", aParameter, bParameter, sum);
-        //}
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_Sum", aParameter, bParameter, sum);
+        }
     
-        //public virtual ObjectResult<Nullable<int>> PR_Tset(ObjectParameter row)
-        //{
-        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("PR_Tset", row);
-        //}
+        public virtual ObjectResult<Nullable<int>> PR_Tset(ObjectParameter row)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("PR_Tset", row);
+        }
     }
 }

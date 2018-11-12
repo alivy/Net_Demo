@@ -4,7 +4,7 @@ using EF.Linq;
 using Knowledge_Point知识点.MEF;
 using Knowledge_Point知识点.MySocket;
 using Knowledge_Point知识点.Unity;
-//using Microsoft.Practices.Unity.Configuration;
+using Microsoft.Practices.Unity.Configuration;
 using Skill_Point.委托;
 using System;
 using System.Collections;
@@ -23,28 +23,12 @@ using System.Xml;
 using System.Xml.Serialization;
 using Type_Conver;
 using Utils工具;
+using Utils工具.ASPOSE;
 using Utils工具.网络操作;
 
 namespace Miao_ToolCase
 {
-    /// <summary>
-    /// 扩展类
-    /// </summary>
-    public static class Extension
-    {
-        public static int StringToInt32(this string str)
-        {
-            int num = -1;
-            if (int.TryParse(str, out num))
-            {
-                return num;
-            }
-            else
-            {
-                return -1;
-            }
-        }
-    }
+
 
     public class Response
     {
@@ -100,31 +84,37 @@ namespace Miao_ToolCase
 
 
 
+    public class test
+    {
+        public int id { get; set; }
 
+        public string num { get; set; }
+    }
 
 
     public class Program
     {
         static void Main(string[] args)
         {
-            new LinqSelect().INNER_JOIN();
 
-            //var join = string.Join(",", "1,3,5,7,9");
-            ////
-            //int[] selects = Array.ConvertAll<string, int>(join.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries), s => s.StringToInt32());  //string分割转int[] 
-            //var ids = join.ToCharArray();
+            List<test> tests = new List<test>();
+            string a = "1,2,3,4,5";
+            var ss = string.Join(",", a).ToList();
+            Console.WriteLine(ss[0] + "dasdas" + ss.Count);
+
+
+            //Skill_Point.队列.ConcurrentQueueHelp.start();
+
+
+            //setText();
+            //new LinqSelect().MvcPageList();
+
+
 
 
             ////var tcp = new Knowledge_Point知识点.MySocket.TcpClient();
 
-            //Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            //server.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 200)); // 绑定IP+端口
-            //server.Listen(10); // 开始监听
 
-            //Console.WriteLine("等待连接...");
-
-            //AcceptHelper ca = new AcceptHelper() { Bytes = new byte[2048] };
-            //IAsyncResult res = server.BeginAccept(new AsyncCallback(ca.AcceptTarget), server);
 
             //string str = string.Empty;
             //while (str != "exit")
@@ -135,39 +125,6 @@ namespace Miao_ToolCase
             //}
             //ClientManager.Close();
             //server.Close();
-
-
-
-            //try
-            //{
-            //    //注册 log4net
-            //    log4net.Config.XmlConfigurator.Configure(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4config\\log.xml"));
-            //    //var a = new Log();
-            //    TaskFactory taskFactory = new TaskFactory();
-            //    for (int i = 0; i < 10; i++)
-            //    {
-            //        Action act = () => LoggerHelper.Error("当前循环为" + i.ToString());
-            //        //taskFactory.StartNew(act);
-            //        new Task(act).Start();
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
-
-
-
-
-            //TaskFactory taskFactory = new TaskFactory();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Action act = () => LoggerHelper.Error("当前循环为"+i.ToString()); 
-            //    //taskFactory.StartNew(act);
-            //    new Task(act).Start();
-            //}
-
-
             //var a = new Log();
 
 
@@ -188,15 +145,6 @@ namespace Miao_ToolCase
             //Console.WriteLine("主线程结束");
             //int type = GetEnumValue(typeof(Page), "page2");
             //var partialView = Enum.GetName(typeof(Page), type);
-            //List<int> list = new List<int>() { 1,2,3,4};
-            //List<int> slidt = new List<int>() { 1, 2, 3, 5 };
-            //List<int> Result = list.Union(slidt).ToList();          //剔除重复项
-            //Result = list.Concat(slidt).ToList();          //保留重复项
-            //string json = string.Join(",", list);
-
-
-
-
 
 
             //response result = new response();
@@ -218,29 +166,6 @@ namespace Miao_ToolCase
             //        var OutputXmlString = Encoding.UTF8.GetString(ms.ToArray());
             //    }
             //}
-
-
-
-
-
-            //List<IDCardNumber> ss = IDCardNumber.Radom(50);
-
-
-            //var card = IDCardNumber.GenPinCode();
-            //var OverdueDay =  DateTime.Now.CompareTo(DateTime.Now.AddDays(-5));
-            //bool Is_sure = false;
-            //do
-            //{
-            //    if (2 < 1) 
-            //        Console.WriteLine("2<1");
-
-            //    else 
-            //         Console.WriteLine("2>1");
-            //    if (3 > 1) 
-            //        Console.WriteLine("3>1");
-
-            //} while (Is_sure);
-
 
 
             //MEF_Base MEF = new MEF_Realize();
@@ -267,7 +192,49 @@ namespace Miao_ToolCase
         }
 
 
-      
+
+
+        public static void getText()
+        {
+            string strTest = string.Format("{0}\t{1}", 1, "a");
+
+            //System.IO.File.WriteAllText(@"C:\testDir\test1.txt", strTest, Encoding.UTF8);
+            string strTest1 = string.Format("{0}\t{1}", 2, "b");
+            //BB(strTest);
+            //BB(strTest1);
+            //System.IO.File.WriteAllText(@"C:\testDir\test1.txt", strTest1, Encoding.UTF8);
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"F:\\test2.txt", true))
+            {
+                file.WriteLine(strTest);// 直接追加文件末尾，换行 
+            }
+
+        }
+
+        public static void BB(string str)
+        {
+            FileStream fs = new FileStream(@"F:\\test2.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            //开始写入
+            sw.Write(str);
+            //清空缓冲区
+            sw.Flush();
+            //关闭流
+            sw.Close();
+            fs.Close();
+        }
+
+
+        public static void setText()
+        {
+            string file = "F:\\openQuestion.txt";
+            var lines = File.ReadAllLines(file, Encoding.UTF8);
+            foreach (var line in lines)
+            {
+                var ss = line.Split('\t');
+                Console.WriteLine("{0},{1},{2},{3}", ss[0], ss[1], ss[2], ss[3]);
+            }
+        }
         public static int GetEnumValue(Type enumType, string enumName)
         {
             try
