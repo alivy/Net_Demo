@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="edce9baf-0ecd-437b-8ce6-65835c3332ed" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:11524/TiFenCePdfDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TiFenCePdfDataService.xsd" MetadataType="Schema" ID="550b68f1-e492-4414-8084-319039501626" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd8" />
+    <MetadataFile FileName="TiFenCePdfDataService1.xsd" MetadataType="Schema" ID="86faa30b-36e2-4a45-91c2-6dd79656e6f2" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd9" />
+    <MetadataFile FileName="TiFenCePdfDataService2.xsd" MetadataType="Schema" ID="ab8fea00-9ba0-463d-9dbd-e6ef76499175" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd10" />
+    <MetadataFile FileName="TiFenCePdfDataService.wsdl" MetadataType="Wsdl" ID="67d09289-02de-493f-b609-48ef2c230d39" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?wsdl" />
+    <MetadataFile FileName="TiFenCePdfDataService3.xsd" MetadataType="Schema" ID="0965d38d-6f11-493f-a62d-ff0dd6e31013" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd11" />
+    <MetadataFile FileName="TiFenCePdfDataService.disco" MetadataType="Disco" ID="bc411dc0-3649-4dfb-bd28-2f3469023b2a" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?disco" />
+    <MetadataFile FileName="TiFenCePdfDataService4.xsd" MetadataType="Schema" ID="082f93c1-e729-4cfa-8198-13c1ef976567" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd12" />
+    <MetadataFile FileName="TiFenCePdfDataService5.xsd" MetadataType="Schema" ID="ad5f3ff8-957b-4f32-949a-6fb9ebcb1880" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TiFenCePdfDataService6.xsd" MetadataType="Schema" ID="c935f20f-c460-4905-870b-fb0e8077f4d0" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TiFenCePdfDataService7.xsd" MetadataType="Schema" ID="96522623-a4c1-438b-9cf5-d0ba43b0cb05" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TiFenCePdfDataService8.xsd" MetadataType="Schema" ID="5238f918-49c1-408a-8a64-9fece3b0404b" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TiFenCePdfDataService9.xsd" MetadataType="Schema" ID="bd5a75a0-5f45-4de5-8b76-f6784c1e482a" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd6" />
+    <MetadataFile FileName="TiFenCePdfDataService10.xsd" MetadataType="Schema" ID="d9da09b1-2674-4f5c-844e-f9a74c8a9933" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd7" />
+    <MetadataFile FileName="TiFenCePdfDataService11.xsd" MetadataType="Schema" ID="9ff5e2e6-1e26-49b4-a999-34a55e4b3c1c" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd4" />
+    <MetadataFile FileName="TiFenCePdfDataService12.xsd" MetadataType="Schema" ID="d1dd146d-a762-4b48-8504-504e612f556a" SourceId="1" SourceUrl="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,8 +1,6 @@
 ﻿using MyCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Utils工具;
 
@@ -13,8 +11,13 @@ namespace Web.Controllers
         // GET: UserService
         public ActionResult Index()
         {
+
             return View();
         }
+
+
+      
+
 
         public ActionResult UserService()
         {

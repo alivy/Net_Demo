@@ -53,8 +53,11 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -70,11 +73,31 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseParam.cs" />
+    <Compile Include="Connected Services\TiFenCePdfDataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TiFenCeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TiMingCe\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ConstString.cs" />
     <Compile Include="DESEncrypt.cs" />
     <Compile Include="JsonHelper.cs" />
+    <Compile Include="TiFenCeServiceRequestTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiFenCePdfDataTest.cs" />
+    <Compile Include="LinqTest.cs" />
+    <Compile Include="UnitTest2.cs" />
+    <Compile Include="UnitTest3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -87,10 +110,246 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ConvertPdfResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.CreateJuanZiQbmsApplyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.CreateReportInJuanZiQbmsApplyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.CreateReportInOneStepResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetJuanZiQbmsApplyResultResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetPdfDetailInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetPdfInfoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetRecordExamResultsByRecordIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetTiFenCeReportListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.GetTiFenCeReportStatusListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfArrayOfSelfEvaluationExcelModelpB_SKTQd7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfArrayOfTiFenCeReportStatusModelxh_SroZBm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfCreateReportInOneStepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfCreateReportInOneStepResponse4GHbq3UM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfGetJuanZiQbmsApplyResultResponse8qtYJVFK.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfGetTiFenCeReportListResponse4GHbq3UM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.ServiceResultOfint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\Test.TiFenCePdfDataService.StudentExamResultWordInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService.wsdl" />
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Test.TiFenCeService.OrganizationCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Test.TiFenCeService.OrganizationInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Test.TiFenCeService.ServiceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Test.TiFenCeService.TiFenCeProcessInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.wsdl" />
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\Test.TiMingCe.ServiceResultOfbase64Binary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiMingCe\Test.TiMingCe.ServiceResultOfTiMingCeEntityTca8ElYk.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe.wsdl" />
+    <None Include="Connected Services\TiMingCe\TiMingCe.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiMingCe\TiMingCe8.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.Translate.3.3.1.24\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TiFenCePdfDataService\" />
+    <WCFMetadataStorage Include="Connected Services\TiFenCeService\" />
+    <WCFMetadataStorage Include="Connected Services\TiMingCe\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCePdfDataService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCePdfDataService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCePdfDataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiMingCe\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiMingCe\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiMingCe\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiMingCe\TiMingCe.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TiFenCePdfDataService\TiFenCePdfDataService.disco" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

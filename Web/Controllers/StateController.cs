@@ -9,6 +9,8 @@ namespace Web.Controllers
 {
     public class StateController : Controller
     {
+        [Route("api/[Controller]")]
+
         // GET: State
         public ActionResult Index()
         {

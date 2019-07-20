@@ -31,7 +31,7 @@ namespace Knowledge_Point知识点.MEF
     /// </summary>
      public class MEF_Realize : MEF_Base
     {
-        [Import]
+        [Import(typeof(IBookService))]
         public IBookService Service { get; set; }
 
         /// <summary>

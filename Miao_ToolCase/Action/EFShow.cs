@@ -1,0 +1,17 @@
+﻿using EF.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Miao_ToolCase.Action
+{
+    public class EFShow
+    {
+        public void Show()
+        {
+            new LinqSelect().MvcPageList();
+        }
+    }
+}

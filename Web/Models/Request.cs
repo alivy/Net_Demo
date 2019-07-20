@@ -19,7 +19,7 @@ namespace Web.Models
             byte[] b = new byte[s.Length];
             s.Read(b, 0, (int)s.Length);
             var postStr = Encoding.UTF8.GetString(b);
-            Logger.WirteLocalMessageLog("接收异常消息为:"+postStr.ToString());
+            Logger.WirteLocalMessageLog("接收异常消息为:"+postStr);
         }
 
     }

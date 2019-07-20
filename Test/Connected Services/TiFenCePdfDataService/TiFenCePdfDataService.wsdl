@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TiFenCePdfDataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi.Request" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Enum" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.JuanZiPoint.Request" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Response" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.JuanZiPoint.Response" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Exam" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITiFenCePdfDataService_GetPdfInfoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfInfoList" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetPdfInfoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetPdfDetailInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfDetailInfo" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetPdfDetailInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfDetailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_ConvertPdf_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertPdf" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_ConvertPdf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertPdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInOneStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInOneStep" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInOneStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInOneStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInJuanZiQbmsApply_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInJuanZiQbmsApply" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInJuanZiQbmsApply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInJuanZiQbmsApplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetTiFenCeReportList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTiFenCeReportList" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetTiFenCeReportList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTiFenCeReportListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetTiFenCeReportStatusList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTiFenCeReportStatusList" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetTiFenCeReportStatusList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTiFenCeReportStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateJuanZiQbmsApply_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJuanZiQbmsApply" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateJuanZiQbmsApply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJuanZiQbmsApplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetJuanZiQbmsApplyResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJuanZiQbmsApplyResult" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetJuanZiQbmsApplyResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJuanZiQbmsApplyResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInOneStepForJava_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInOneStepForJava" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_CreateReportInOneStepForJava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReportInOneStepForJavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetRecordExamResultsByRecordId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordExamResultsByRecordId" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCePdfDataService_GetRecordExamResultsByRecordId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordExamResultsByRecordIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITiFenCePdfDataService">
+    <wsdl:operation name="GetPdfInfoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetPdfInfoList" message="tns:ITiFenCePdfDataService_GetPdfInfoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetPdfInfoListResponse" message="tns:ITiFenCePdfDataService_GetPdfInfoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfDetailInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetPdfDetailInfo" message="tns:ITiFenCePdfDataService_GetPdfDetailInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetPdfDetailInfoResponse" message="tns:ITiFenCePdfDataService_GetPdfDetailInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertPdf">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/ConvertPdf" message="tns:ITiFenCePdfDataService_ConvertPdf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/ConvertPdfResponse" message="tns:ITiFenCePdfDataService_ConvertPdf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInOneStep">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStep" message="tns:ITiFenCePdfDataService_CreateReportInOneStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStepResponse" message="tns:ITiFenCePdfDataService_CreateReportInOneStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInJuanZiQbmsApply">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInJuanZiQbmsApply" message="tns:ITiFenCePdfDataService_CreateReportInJuanZiQbmsApply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInJuanZiQbmsApplyResponse" message="tns:ITiFenCePdfDataService_CreateReportInJuanZiQbmsApply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTiFenCeReportList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportList" message="tns:ITiFenCePdfDataService_GetTiFenCeReportList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportListResponse" message="tns:ITiFenCePdfDataService_GetTiFenCeReportList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTiFenCeReportStatusList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportStatusList" message="tns:ITiFenCePdfDataService_GetTiFenCeReportStatusList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportStatusListResponse" message="tns:ITiFenCePdfDataService_GetTiFenCeReportStatusList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateJuanZiQbmsApply">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateJuanZiQbmsApply" message="tns:ITiFenCePdfDataService_CreateJuanZiQbmsApply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateJuanZiQbmsApplyResponse" message="tns:ITiFenCePdfDataService_CreateJuanZiQbmsApply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJuanZiQbmsApplyResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetJuanZiQbmsApplyResult" message="tns:ITiFenCePdfDataService_GetJuanZiQbmsApplyResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetJuanZiQbmsApplyResultResponse" message="tns:ITiFenCePdfDataService_GetJuanZiQbmsApplyResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInOneStepForJava">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStepForJava" message="tns:ITiFenCePdfDataService_CreateReportInOneStepForJava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStepForJavaResponse" message="tns:ITiFenCePdfDataService_CreateReportInOneStepForJava_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordExamResultsByRecordId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetRecordExamResultsByRecordId" message="tns:ITiFenCePdfDataService_GetRecordExamResultsByRecordId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCePdfDataService/GetRecordExamResultsByRecordIdResponse" message="tns:ITiFenCePdfDataService_GetRecordExamResultsByRecordId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITiFenCePdfDataService" type="tns:ITiFenCePdfDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPdfInfoList">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetPdfInfoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfDetailInfo">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetPdfDetailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertPdf">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/ConvertPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInOneStep">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInJuanZiQbmsApply">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/CreateReportInJuanZiQbmsApply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTiFenCeReportList">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTiFenCeReportStatusList">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetTiFenCeReportStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJuanZiQbmsApply">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/CreateJuanZiQbmsApply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJuanZiQbmsApplyResult">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetJuanZiQbmsApplyResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportInOneStepForJava">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/CreateReportInOneStepForJava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordExamResultsByRecordId">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCePdfDataService/GetRecordExamResultsByRecordId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TiFenCePdfDataService">
+    <wsdl:port name="BasicHttpBinding_ITiFenCePdfDataService" binding="tns:BasicHttpBinding_ITiFenCePdfDataService">
+      <soap:address location="http://localhost:11524/TiFenCePdfDataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

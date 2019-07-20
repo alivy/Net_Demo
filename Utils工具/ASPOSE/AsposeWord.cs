@@ -1,16 +1,26 @@
-﻿using Aspose.Words;
+﻿using AForge.Imaging.Filters;
+using Aspose.Words;
 using Aspose.Words.Drawing;
 using Aspose.Words.Fields;
+using Aspose.Words.Replacing;
 using Aspose.Words.Tables;
+using RuanYun.Word;
 using RuanYun.Word.Builder;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
+using Utils工具.MyMindFusion;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Utils工具.ASPOSE
@@ -25,6 +35,7 @@ namespace Utils工具.ASPOSE
             Document doc = new Document(tempFile);
             DocumentBuilder builder = new DocumentBuilder(doc);
             var writer = new WordWriter(builder);
+#pragma warning disable CS0618 // 类型或成员已过时
             doc.Range.Replace(new Regex("{test}"), new WordReplacer(args =>
             {
                 var matchNode = args.MatchNode;
@@ -41,7 +52,7 @@ namespace Utils工具.ASPOSE
                 if (tableNode != null)
                 {
                     tableNode.LastRow.Remove();
-                    var lastRow = tableNode.LastRow;
+                    Row lastRow = tableNode.LastRow;
                     foreach (Cell cell in lastRow.Cells)
                     {
                         cell.CellFormat.Borders.Bottom.LineStyle = LineStyle.Single;
@@ -49,11 +60,320 @@ namespace Utils工具.ASPOSE
                     }
                 }
             }), false);
+#pragma warning restore CS0618 // 类型或成员已过时
             doc.Save("D:\\test2.docx");
+        }
+
+        /// <summary>
+        /// 设置图片只有两色
+        /// </summary>
+        public static void SetImgTwoColors()
+        {
+            string tempFile = "F:\\TFCTest\\new\\test.docx";
+            Document doc = new Document(tempFile);
+            var shapes = doc.GetChildNodes(NodeType.Shape, true);
+            foreach (var shape in shapes)
+            {
+                var img = ((Shape)shape).ImageData.ToImage();
+                using (var bitmap = new Bitmap(img))
+                using (var backBitmap = ReplaceBackgroundColor(bitmap, Color.White))
+                using (var clearColor = ToGray(backBitmap))
+                {
+                    clearColor.Save("F:\\TFCTest\\new\\testimg\\" + Guid.NewGuid().ToString() + ".png");
+                    ((Shape)shape).ImageData.ImageBytes = PhotoImageInsert(clearColor);
+                }
+            }
+            doc.Save(@"F:\\TFCTest\\new\\test2.docx");
+        }
+
+        //将Image转换成流数据，并保存为byte[] 
+        public static byte[] PhotoImageInsert(System.Drawing.Image imgPhoto)
+        {
+            using (MemoryStream mstream = new MemoryStream())
+            {
+                imgPhoto.Save(mstream, System.Drawing.Imaging.ImageFormat.Bmp);
+                byte[] byData = new Byte[mstream.Length];
+                mstream.Position = 0;
+                mstream.Read(byData, 0, byData.Length);
+                return byData;
+            }
         }
 
 
 
+
+
+        public static System.Drawing.Image BlackWhitePhoto(System.Drawing.Image images)
+        {
+            try
+            {
+                Bitmap map = new Bitmap(images);
+                Bitmap bitmap = new Bitmap(images.Width, images.Height);
+                if (bitmap.PixelFormat != PixelFormat.Format8bppIndexed)
+                {
+                    bitmap = Grayscale.CommonAlgorithms.BT709.Apply(map);
+                    //Grayscale g = new Grayscale(0.2125, 0.7154, 0.0721);
+                    //bitmap = g.Apply(map);
+                }
+                BradleyLocalThresholding filter = new BradleyLocalThresholding();
+                filter.ApplyInPlace(bitmap);
+                return bitmap;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>  
+        /// 图像灰度化  
+        /// </summary>  
+        /// <param name="bmp"></param>  
+        /// <returns></returns>  
+        public static Bitmap ToGray(Bitmap bmp)
+        {
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int j = 0; j < bmp.Height; j++)
+                {
+                    Color color = bmp.GetPixel(i, j);
+                    int gray = (int)(color.R * 0.3 + color.G * 0.59 + color.B * 0.11);
+                    Color newColor = Color.FromArgb(gray, gray, gray);
+                    bmp.SetPixel(i, j, newColor);
+                }
+            }
+            return bmp;
+        }
+
+        public static void RaplaceTransparentColor(System.Drawing.Image image)
+        {
+
+            using (Bitmap bitmap = new Bitmap(image))
+            {
+                var g = Graphics.FromImage(bitmap);
+                g.Clear(Color.Green);
+                //bitmap.MakeTransparent(Color.Green);
+                bitmap.Save("E:\\BlackWhitePhoto\\错误图片1.png");
+            }
+        }
+
+
+
+
+
+        /// <summary>
+        /// 设置图片为黑白色
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        public static System.Drawing.Image BlackWhitePhoto(Bitmap map)
+        {
+            if (map.PixelFormat != PixelFormat.Format8bppIndexed)
+            {
+                var bitmap = ReplaceBackgroundColor(map, Color.White);
+                Grayscale g = new Grayscale(0.2125, 0.7154, 0.0721);
+                bitmap = g.Apply(bitmap);
+                BradleyLocalThresholding filter = new BradleyLocalThresholding();
+                filter.ApplyInPlace(bitmap);
+                return bitmap;
+            }
+            return map;
+        }
+
+
+        /// <summary>
+        /// 设置图片为黑白色
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        public static Bitmap ReplaceBackgroundColor(Bitmap map, Color color)
+        {
+            var bitmap = new Bitmap(map.Width, map.Height);
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                graphics.Clear(color);
+                graphics.DrawImage(map, new Point(0, 0));
+                graphics.Save();
+            }
+            return bitmap;
+        }
+
+
+
+        /// <summary>
+        /// 将png图片插入word
+        /// </summary>
+        public static void AsposeWordReplaceImg()
+        {
+            string logoPath = "F:\\错误图片.png";
+            System.Drawing.Image image = System.Drawing.Image.FromFile(logoPath);
+            Bitmap bitmap = new Bitmap(image.Width, image.Height);
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                graphics.Clear(Color.White);
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+                graphics.DrawImage(image, new Point(0, 0));
+                graphics.ResetTransform();
+                graphics.Save();
+            }
+            string url = string.Format(@"F:\testxx.png");
+            using (var ms = GetStreamFromBitmap(bitmap))
+            using (var imgto = System.Drawing.Image.FromStream(ms))
+            {
+                imgto.Save(url, ImageFormat.Png);
+            }
+
+
+        }
+
+
+        public static void AsposeWordInsetImg()
+        {
+            string tempFile = "F:\\TFCTest\\old\\test.docx";
+            // Document doc = new Document(tempFile);
+            // DocumentBuilder builder = new DocumentBuilder(doc);
+            //var writer = new WordWriter(builder);
+            var document = WordFactory.CreateBuilder(tempFile);
+            WordWriteImage(document);
+            //ReplaceImg(document, "{StudentName}");
+            document.Save("F:\\TFCTest\\new\\test.docx");
+        }
+
+        /// <summary>
+        /// 将图片写入文档中
+        /// </summary>
+        /// <param name="document"></param>
+        public static void WordWriteImage(IWordBuilder document)
+        {
+            for (int i = 1; i < 19; i++)
+            {
+                string path = "F:\\TFCTest\\new\\img\\40060_" + i + ".png";
+                System.Drawing.Image image = System.Drawing.Image.FromFile(path);
+                document.Writer.WriteImage(image);
+            }
+        }
+
+
+
+        public static void ReplaceImg(IWordBuilder wordBuilder, string replaceConcent)
+        {
+            wordBuilder.ReplaceCallBack("replaceConcent", act =>
+            {
+                act.WriteImage(NatureGraphics());
+                act.InsertBreak(BreakType.PageBreak);
+            });
+
+        }
+
+
+
+
+
+        public static MemoryStream GetStreamFromBitmap(Bitmap bitmap)
+        {
+            var stream = new MemoryStream();
+            bitmap.Save(stream, ImageFormat.Png);
+            stream.Position = 0;
+            return stream;
+        }
+
+
+
+        public static void NewGraphics()
+        {
+            string logoPath = "F:\\错误图片.png";
+            System.Drawing.Image image = System.Drawing.Image.FromFile(logoPath);
+            Bitmap bitmap = new Bitmap(1000, 1000); ;
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                graphics.Clear(Color.Green);
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+                graphics.DrawImage(image, new Point(100, 10));
+                graphics.ResetTransform();
+                graphics.Save();
+
+            }
+            bitmap.Save("E:\\错误图片.png");
+            //return bitmap;
+        }
+
+
+        public static System.Drawing.Image NatureGraphics()
+        {
+            string logoPath = "F:\\testx.png";
+            //System.Drawing.Image image = System.Drawing.Image.FromFile(logoPath);
+            Bitmap bitmapLogo = new Bitmap(logoPath);
+            bitmapLogo.MakeTransparent(Color.White);
+            System.Drawing.Image imageLogo = GetThumbnailByHeight(bitmapLogo, 60);
+            return imageLogo;
+        }
+
+
+        /// <summary>
+        /// 获取缩略图,按比例缩放     
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="destHeight"></param>
+        /// <param name="destWidth"></param>
+        /// <returns></returns>
+        public static Bitmap GetThumbnail(Bitmap b, int destHeight, int destWidth)
+        {
+            System.Drawing.Image imgSource = b;
+            System.Drawing.Imaging.ImageFormat thisFormat = imgSource.RawFormat;
+            int sW = 0, sH = 0;
+            // 按缩放比例计算长和宽          
+            int sWidth = imgSource.Width;
+            int sHeight = imgSource.Height;
+            if (sHeight > destHeight || sWidth > destWidth)
+            {
+                if ((sWidth * destHeight) > (sHeight * destWidth))
+                {
+                    sW = destWidth;
+                    sH = (destWidth * sHeight) / sWidth;
+                }
+                else
+                {
+                    sH = destHeight;
+                    sW = (sWidth * destHeight) / sHeight;
+                }
+            }
+            else
+            {
+                sW = sWidth;
+                sH = sHeight;
+            }
+            Bitmap outBmp = new Bitmap(sW, sH);
+            Graphics g = Graphics.FromImage(outBmp);
+            g.Clear(Color.Transparent);
+            // 设置画布的描绘质量         
+            g.CompositingQuality = CompositingQuality.HighQuality;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.DrawImage(imgSource, new Rectangle(0, 0, sW, sH), 0, 0, imgSource.Width, imgSource.Height, GraphicsUnit.Pixel);
+            g.Dispose();
+            // 以下代码为保存图片时，设置压缩质量     
+            EncoderParameters encoderParams = new EncoderParameters();
+            long[] quality = new long[1];
+            quality[0] = 100;
+            EncoderParameter encoderParam = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
+            encoderParams.Param[0] = encoderParam;
+            imgSource.Dispose();
+            return outBmp;
+        }
+
+        /// <summary>
+        /// 通过高度等比缩放图片
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="destHeight"></param>
+        /// <returns></returns>
+        public static Bitmap GetThumbnailByHeight(Bitmap b, int destHeight)
+        {
+            return GetThumbnail(b, destHeight, 10000);
+        }
 
 
         public static void creat()
@@ -90,6 +410,65 @@ namespace Utils工具.ASPOSE
             Console.WriteLine(doc.GetText());
             doc.Save("D:\\test2.docx");
 
+        }
+
+        public void Process(WordWriter writer)
+        {
+            writer.DocumentBuilder.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+            List<ExamQuestionAtlasChart.ExamQuestionNodeInfo> questions = new List<ExamQuestionAtlasChart.ExamQuestionNodeInfo>();
+            questions.AddRange(GetExamQuestionNodeInfo(1, "知识点名称1", 1, 4));
+            questions.AddRange(GetExamQuestionNodeInfo(2, "知识点名称2", 5, 5));
+            questions.AddRange(GetExamQuestionNodeInfo(3, "知识点名称3", 10, 2));
+            questions.AddRange(GetExamQuestionNodeInfo(4, "知识点名称4", 12, 8));
+            questions.AddRange(GetExamQuestionNodeInfo(5, "知识点名称5", 20, 1));
+            questions.AddRange(GetExamQuestionNodeInfo(6, "知识点名称6", 21, 2));
+            var plotter = new ExamQuestionAtlasChart(questions);
+            Utility.Retry(() =>
+            {
+                using (var stream = plotter.Draw())
+                {
+                    writer.DocumentBuilder.Font.Size = 10.5;
+                    writer.DocumentBuilder.Font.Color = ColorTranslator.FromHtml("#00A0e9");
+                    writer.InsertBreak();
+                    var shape = writer.WriteImage(stream);
+                    var maxWidth = 500;
+                    var maxHeight = 700;
+                    if (shape.Height > maxHeight || shape.Width > maxWidth)
+                    {
+                        var scaling = Math.Max(shape.Height / maxHeight, shape.Width / maxWidth);
+                        shape.Height /= scaling;
+                        shape.Width /= scaling;
+                    }
+                    writer.InsertBreak(BreakType.PageBreak);
+                }
+            }, 3, 300);
+        }
+
+        /// <summary>
+        /// 获取考试试卷题目
+        /// </summary>
+        /// <param name="knowledgePointId"></param>
+        /// <param name="knowledgePointName"></param>
+        /// <param name="stratQestionNumber"></param>
+        /// <param name="questionCount"></param>
+        /// <returns></returns>
+        private List<ExamQuestionAtlasChart.ExamQuestionNodeInfo> GetExamQuestionNodeInfo(int knowledgePointId, string knowledgePointName, int stratQestionNumber, int questionCount)
+        {
+            var _r = new Random(DateTime.Now.Millisecond);
+            var result = new List<ExamQuestionAtlasChart.ExamQuestionNodeInfo>();
+            for (var i = 0; i < questionCount; i++)
+            {
+                result.Add(new ExamQuestionAtlasChart.ExamQuestionNodeInfo
+                {
+                    KnowledgePointId = knowledgePointId,
+                    KnowledgePointName = knowledgePointName,
+                    QuestionNumber = stratQestionNumber + i,
+                    QuestionBaseScore = _r.Next(0, 5) * 4,
+                    QuestionScoreRate = _r.NextDouble()
+                });
+            }
+
+            return result;
         }
 
         //public Table WriteWrongQuestionEvaluationInfo(DocumentBuilder writer, WrongQuestionResult wrongQuestion)
@@ -229,7 +608,93 @@ namespace Utils工具.ASPOSE
         }
 
     }
+    /// <summary>
+    /// 方法扩展
+    /// </summary>
+    public class Utility
+    {
+        /// <summary>
+        /// 提供可重试的调用方式
+        /// <para>如果执行成功直接返回</para>
+        /// <para>尝试次数达到上限后依旧失败，将最后一次执行的异常抛出</para>
+        /// </summary>
+        /// <param name="action">执行的操作</param>
+        /// <param name="count">失败重试次数的上限</param>
+        /// <param name="sleep"></param>
+        public static void Retry(Action action, uint count = 3, int sleep = 5000)
+        {
+            if (action == null) return;
+            if (count == 0)
+                return;
+            try
+            {
+                action();
+            }
+            catch
+            {
+                Thread.Sleep(sleep);
+                count--;
+                if (count == 0)
+                    throw;
+                Retry(action, count, sleep);
+            }
+        }
 
+        /// <summary>
+        /// 匿名方法递归
+        /// </summary>
+        /// <typeparam name="T">匿名方法输入参数类型</typeparam>
+        /// <typeparam name="TResult">匿名方法返回类型</typeparam>
+        /// <param name="func">匿名方法委托</param>
+        /// <returns></returns>
+        public static Func<T, TResult> Fix<T, TResult>(Func<Func<T, TResult>, Func<T, TResult>> func)
+        {
+            return x => func(Fix(func))(x);
+        }
+
+        /// <summary>
+        /// 匿名方法递归
+        /// </summary>
+        /// <typeparam name="T1">匿名方法第一个输入参数类型</typeparam>
+        /// <typeparam name="T2">匿名方法第二个输入参数类型</typeparam>
+        /// <typeparam name="TResult">匿名方法返回类型</typeparam>
+        /// <param name="func">匿名方法委托</param>
+        /// <returns></returns>
+        public static Func<T1, T2, TResult> Fix<T1, T2, TResult>(Func<Func<T1, T2, TResult>, Func<T1, T2, TResult>> func)
+        {
+            return (x, y) => func(Fix(func))(x, y);
+        }
+
+        /// <summary>
+        /// like查询字符转义
+        /// </summary>
+        /// <param name="keyWord">查询关键字</param>
+        /// <returns></returns>
+        public static string SqlLikeReplace(string keyWord)
+        {
+            if (string.IsNullOrWhiteSpace(keyWord))
+            {
+                return keyWord;
+            }
+            if (keyWord.Contains("%"))
+            {
+                return keyWord.Replace("%", @"\%");
+            }
+            if (keyWord.Contains("_"))
+            {
+                return keyWord.Replace("_", @"\_");
+            }
+            if (keyWord.Contains("'"))
+            {
+                return keyWord.Replace("'", "\'");
+            }
+            if (keyWord.Contains(@"\"))
+            {
+                return keyWord.Replace(@"\", @"\\\\");
+            }
+            return keyWord;
+        }
+    }
     public class InsertDocumentAtReplaceHandler : IReplacingCallback
     {
         public string MyDir = "D:\\";

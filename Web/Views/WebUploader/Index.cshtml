@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="css/smart-green.css" rel="stylesheet" />
+@*webuplaoder样式文件*@
+<link rel="stylesheet" type="text/css" href="webuploader/webuploader.css" />
+@*先引用jquery插件*@
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+@*webuploader插件*@
+<script type="text/javascript" src="webuploader/webuploader.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/uploader.js"></script>
+
+<style type="text/css">
+    .fl {
+        /*// 相册图片ul li样式向左浮动，JS文件uploader.js里动态添加*/
+        float: left;
+        width: 350px;
+        list-style-type: none;
+    }
+
+    .clear {
+        /*//清除浮动*/
+        clear: both;
+    }
+
+    .tab ul li {
+        /*//单张上传格式排版样式*/
+        line-height: 30px;
+        list-style-type: none;
+    }
+
+    .lef {
+        float: left;
+        width: 90px;
+    }
+
+    .rig {
+        float: left;
+        width: 870px;
+    }
+</style>
+
+<form id="form1">
+    <div class="smart-green tab">
+        <h1>
+            webuploader图片单张,多张批量上传,可设置生成缩略图
+            <span>运用webuploader无刷新上传图片</span>
+        </h1>
+        <ul style="height: 320px;">
+            <li class="lef"><span>单张上传:</span></li>
+            <li class="rig">
+                <input type="text" style="float: left; height: 30px; width: 450px;" readonly="readonly" name="txtImgUrl" class="upload-path" />  //upload-path表示图片上传后返回的文件名带目录接受类
+                <div style="float: left; margin-left: 8px;" class="upload-box upload-img"></div> //引用upload-img动态JS添加一个按钮
+                <div style="clear: both;"></div>
+                <img id="imageurl" class="upload-imgurl" width="300" />  //upload-imgurl表示上传后返回接受类
+            </li>
+            <li class="clear"></li>
+        </ul>
+        <ul>
+            <li class="lef"><span>批量上传</span></li>
+            <li class="rig">
+                <div style="float: left; " class="upload-box upload-album"></div>  //引用upload-album动态JS添加一个按钮
+                <div style="float: left; margin-left: 8px;"><input id="chkThumb" name="chkThumb" type="checkbox" value="1" /><label for="chkThumb">是否生成缩略图</label></div>
+                <div class="clear"></div>
+                <div class="photo-list">
+                    //批量上传后动态返回接收的photo-list类，内容写在<ul>
+                        内
+                        <ul>
+                            <%--
+                            <li>
+                                <input type="hidden" name="hid_photo_name" value="" />  //返回的隐藏input名为hid_photo_name,后台获取将是一个数组
+                                //单个值/Upload/20160625215133272.jpg|，带缩略图/Upload/20160625223245312.jpg|/Upload/thumb_20160625223245312.jpg
+                                <input type="hidden" name="hid_photo_remark" value="" /> //可以给图片添加描述信息
+                                <div class="img-box" onclick="setFocusImg(this);">
+                                    <img src="" bigsrc="" />
+                                    <span class="remark"><i>暂无描述...</i></span>
+                                </div>
+                                <a href="javascript:;" onclick="setRemark(this);">描述</a> //添加图片描述
+                                <a href="javascript:;" onclick="delImg(this);">删除</a>  //删除图片按钮
+                            </li>--%>
+                        </ul>
+                </div>
+            </li>
+            <li class="clear"></li>
+        </ul>
+        <%--<label>
+            <span>&nbsp;</span>
+            <input type="button" class="button" value="Save" />
+        </label>--%>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+
+        //初始化上传控件
+        $(".upload-img").InitUploader({
+            sendurl: "/ajax.ashx",
+        });
+
+        $(".upload-album").InitUploader({
+            btntext: "批量上传",
+            multiple: true,
+            water: false,
+            thumbnail: false,
+            sendurl: "/ajax.ashx",
+        });
+    });
+</script>
+

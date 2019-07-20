@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Miao_ToolCase</RootNamespace>
     <AssemblyName>Miao_ToolCase</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words, Version=14.1.0.0, Culture=neutral, PublicKeyToken=00725b1ceb58d0a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Aspose.Words.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.Core.3.3.29.3\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -55,14 +60,20 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="RuanYun.Word, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\RuanYun.Word.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -92,12 +103,79 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\EFShow.cs" />
+    <Compile Include="Action\FileStreamShow.cs" />
+    <Compile Include="Action\MEFShow.cs" />
+    <Compile Include="Action\SocketShow.cs" />
+    <Compile Include="Action\ListShow.cs" />
+    <Compile Include="Action\Log4netShow.cs" />
+    <Compile Include="Action\AsposeWordShow.cs" />
+    <Compile Include="Action\QueueHelpShow.cs" />
+    <Compile Include="Action\ShowInterface.cs" />
+    <Compile Include="Connected Services\TiFenCeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TiFenCeServiceRequest.cs" />
+    <Compile Include="IPValidate.cs" />
     <Compile Include="Model\codefrist.cs" />
+    <Compile Include="Model\models.cs" />
+    <Compile Include="Model\Test.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\TiFenCeService\Miao_ToolCase.TiFenCeService.OrganizationCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Miao_ToolCase.TiFenCeService.OrganizationInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\Miao_ToolCase.TiFenCeService.ServiceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.wsdl" />
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,16 +201,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="log4config\log.xml">
+    <None Include="log4config\log.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
+    </None>
+    <None Include="Connected Services\TiFenCeService\TiFenCeService.disco" />
+    <None Include="Connected Services\TiFenCeService\configuration91.svcinfo" />
+    <None Include="Connected Services\TiFenCeService\configuration.svcinfo" />
+    <None Include="Connected Services\TiFenCeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="UnityConfig\Unity.config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.Translate.3.3.1.24\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TiFenCeService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

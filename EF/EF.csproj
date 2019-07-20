@@ -95,6 +95,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Model\CodeFristDemo\Category.cs" />
+    <Compile Include="Model\CodeFristDemo\Model1.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_DEPARTMENT1.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_MENU.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_MENUROLE.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_ROLE.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_USERROLE.cs" />
+    <Compile Include="Model\CodeFristDemo\TB_USERS.cs" />
     <Compile Include="Model\CodeFrist\CodeFrist.cs" />
     <Compile Include="Model\CodeFrist\QQUser_info.cs" />
     <Compile Include="Model\CodeFrist\User_info.cs" />

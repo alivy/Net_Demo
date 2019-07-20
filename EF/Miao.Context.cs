@@ -21,11 +21,24 @@ namespace EF
             : base("name=MiaoEntities")
         {
         }
-
+        #region 创建DBContext
+        /// <summary>
+        /// 创建DBContext
+        /// </summary>
+        /// <returns></returns>
         public static MiaoEntities CreateContext()
         {
+            //DBContext db = CallContext.GetData("DbContext") as DBContext;
+            //if (db == null)
+            //{
+            //    db = new DBContext();
+            //    CallContext.SetData("DbContext", db);
+            //}
+            //return db;
             return new MiaoEntities();
         }
+        #endregion
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

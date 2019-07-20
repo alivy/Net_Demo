@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9d38360a-8067-4e65-b123-6040b7df40b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:11524/TiFenCeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TiFenCeService.xsd" MetadataType="Schema" ID="be68959f-f597-45f0-87bc-e40ecd664155" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd10" />
+    <MetadataFile FileName="TiFenCeService1.xsd" MetadataType="Schema" ID="6e1b84e2-de70-400d-987f-869c3e7ee1ba" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd11" />
+    <MetadataFile FileName="TiFenCeService2.xsd" MetadataType="Schema" ID="94bd126d-4b43-4a61-80e5-0e1a3bcc052d" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TiFenCeService3.xsd" MetadataType="Schema" ID="32891b6e-1b4a-4e00-94f4-a77a7aadf48e" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd6" />
+    <MetadataFile FileName="TiFenCeService4.xsd" MetadataType="Schema" ID="917f52ca-cf83-4e33-bf67-e0e33e46ff23" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd12" />
+    <MetadataFile FileName="TiFenCeService5.xsd" MetadataType="Schema" ID="0f861455-ed16-48e2-bfbb-54b0d78c0e10" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TiFenCeService6.xsd" MetadataType="Schema" ID="e500bc66-53c4-4855-802c-3413ede01500" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd7" />
+    <MetadataFile FileName="TiFenCeService7.xsd" MetadataType="Schema" ID="da3f55d4-5ffc-4614-b385-bf17894076b6" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd8" />
+    <MetadataFile FileName="TiFenCeService8.xsd" MetadataType="Schema" ID="b6b85521-8811-419c-9898-6b6c228bcc61" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TiFenCeService9.xsd" MetadataType="Schema" ID="783daa8e-a15f-4ebc-ab59-3b9f6c0c121e" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="TiFenCeService.disco" MetadataType="Disco" ID="af022ffa-0f03-4a49-a450-c0b381e11aad" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?disco" />
+    <MetadataFile FileName="TiFenCeService.wsdl" MetadataType="Wsdl" ID="ac0b168d-b1c7-456a-bfe3-b77a36d42a12" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?wsdl" />
+    <MetadataFile FileName="TiFenCeService10.xsd" MetadataType="Schema" ID="0b77a151-fb5c-46e3-8732-f1ea679cb0cf" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd9" />
+    <MetadataFile FileName="TiFenCeService11.xsd" MetadataType="Schema" ID="fbcf7a8d-73ac-4cb9-8904-f420f6445d6e" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TiFenCeService12.xsd" MetadataType="Schema" ID="13583788-9584-43aa-9bd0-feffaa2e6e04" SourceId="1" SourceUrl="http://localhost:11524/TiFenCeService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

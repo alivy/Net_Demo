@@ -11,11 +11,9 @@ namespace EF
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User_Type
     {
-        [Key]
         public int UserType_ID { get; set; }
         public string UserType_Name { get; set; }
         public string Remark { get; set; }

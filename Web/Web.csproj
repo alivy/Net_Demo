@@ -42,6 +42,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ApiDoc.NETFX, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ApiDoc.0.9.3\lib\net\ApiDoc.NETFX.dll</HintPath>
+    </Reference>
+    <Reference Include="ApiDoc.Portable, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ApiDoc.0.9.3\lib\net\ApiDoc.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.Core.3.3.29.3\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -58,9 +64,18 @@
     <Reference Include="MvcPager">
       <HintPath>..\Bin\MvcPager.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -70,6 +85,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -114,6 +135,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="Webdiyer.MvcPager">
       <HintPath>..\Bin\Webdiyer.MvcPager.dll</HintPath>
     </Reference>
@@ -127,9 +151,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -179,9 +200,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Filter\ModelFilter.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="Areas\Demo\Controllers\mySocketController.cs" />
     <Compile Include="Areas\Demo\Controllers\TransController.cs" />
     <Compile Include="Areas\Demo\Controllers\UploadController.cs" />
@@ -192,9 +215,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayUIController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModelValidController.cs" />
     <Compile Include="Controllers\MvcPageController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\UserServiceController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WebUploaderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +229,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PeopleModel.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -211,6 +238,83 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="webuploader\css\webuploader.css" />
+    <Content Include="webuploader\dist\Uploader.swf" />
+    <Content Include="webuploader\dist\webuploader.css" />
+    <Content Include="webuploader\dist\webuploader.custom.js" />
+    <Content Include="webuploader\dist\webuploader.custom.min.js" />
+    <Content Include="webuploader\dist\webuploader.fis.js" />
+    <Content Include="webuploader\dist\webuploader.flashonly.js" />
+    <Content Include="webuploader\dist\webuploader.flashonly.min.js" />
+    <Content Include="webuploader\dist\webuploader.html5nodepend.js" />
+    <Content Include="webuploader\dist\webuploader.html5nodepend.min.js" />
+    <Content Include="webuploader\dist\webuploader.html5only.js" />
+    <Content Include="webuploader\dist\webuploader.html5only.min.js" />
+    <Content Include="webuploader\dist\webuploader.js" />
+    <Content Include="webuploader\dist\webuploader.min.js" />
+    <Content Include="webuploader\dist\webuploader.noimage.js" />
+    <Content Include="webuploader\dist\webuploader.noimage.min.js" />
+    <Content Include="webuploader\dist\webuploader.nolog.js" />
+    <Content Include="webuploader\dist\webuploader.nolog.min.js" />
+    <Content Include="webuploader\dist\webuploader.withoutimage.js" />
+    <Content Include="webuploader\dist\webuploader.withoutimage.min.js" />
+    <Content Include="webuploader\src\base.js" />
+    <Content Include="webuploader\src\dollar-builtin.js" />
+    <Content Include="webuploader\src\dollar-third.js" />
+    <Content Include="webuploader\src\dollar.js" />
+    <Content Include="webuploader\src\file.js" />
+    <Content Include="webuploader\src\lib\blob.js" />
+    <Content Include="webuploader\src\lib\dnd.js" />
+    <Content Include="webuploader\src\lib\file.js" />
+    <Content Include="webuploader\src\lib\filepaste.js" />
+    <Content Include="webuploader\src\lib\filepicker.js" />
+    <Content Include="webuploader\src\lib\image.js" />
+    <Content Include="webuploader\src\lib\md5.js" />
+    <Content Include="webuploader\src\lib\transport.js" />
+    <Content Include="webuploader\src\mediator.js" />
+    <Content Include="webuploader\src\preset\all.js" />
+    <Content Include="webuploader\src\preset\flashonly.js" />
+    <Content Include="webuploader\src\preset\html5only.js" />
+    <Content Include="webuploader\src\preset\withoutimage.js" />
+    <Content Include="webuploader\src\promise-builtin.js" />
+    <Content Include="webuploader\src\promise-third.js" />
+    <Content Include="webuploader\src\promise.js" />
+    <Content Include="webuploader\src\queue.js" />
+    <Content Include="webuploader\src\runtime\client.js" />
+    <Content Include="webuploader\src\runtime\compbase.js" />
+    <Content Include="webuploader\src\runtime\flash\blob.js" />
+    <Content Include="webuploader\src\runtime\flash\filepicker.js" />
+    <Content Include="webuploader\src\runtime\flash\image.js" />
+    <Content Include="webuploader\src\runtime\flash\md5.js" />
+    <Content Include="webuploader\src\runtime\flash\runtime.js" />
+    <Content Include="webuploader\src\runtime\flash\transport.js" />
+    <Content Include="webuploader\src\runtime\html5\androidpatch.js" />
+    <Content Include="webuploader\src\runtime\html5\blob.js" />
+    <Content Include="webuploader\src\runtime\html5\dnd.js" />
+    <Content Include="webuploader\src\runtime\html5\filepaste.js" />
+    <Content Include="webuploader\src\runtime\html5\filepicker.js" />
+    <Content Include="webuploader\src\runtime\html5\image.js" />
+    <Content Include="webuploader\src\runtime\html5\imagemeta.js" />
+    <Content Include="webuploader\src\runtime\html5\imagemeta\exif.js" />
+    <Content Include="webuploader\src\runtime\html5\jpegencoder.js" />
+    <Content Include="webuploader\src\runtime\html5\md5.js" />
+    <Content Include="webuploader\src\runtime\html5\runtime.js" />
+    <Content Include="webuploader\src\runtime\html5\transport.js" />
+    <Content Include="webuploader\src\runtime\html5\util.js" />
+    <Content Include="webuploader\src\runtime\runtime.js" />
+    <Content Include="webuploader\src\uploader.js" />
+    <Content Include="webuploader\src\webuploader.js" />
+    <Content Include="webuploader\src\widgets\filednd.js" />
+    <Content Include="webuploader\src\widgets\filepaste.js" />
+    <Content Include="webuploader\src\widgets\filepicker.js" />
+    <Content Include="webuploader\src\widgets\image.js" />
+    <Content Include="webuploader\src\widgets\log.js" />
+    <Content Include="webuploader\src\widgets\md5.js" />
+    <Content Include="webuploader\src\widgets\queue.js" />
+    <Content Include="webuploader\src\widgets\runtime.js" />
+    <Content Include="webuploader\src\widgets\upload.js" />
+    <Content Include="webuploader\src\widgets\validator.js" />
+    <Content Include="webuploader\src\widgets\widget.js" />
     <None Include="Configs\log4.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -295,11 +399,15 @@
     <Content Include="Views\State\Index.cshtml" />
     <Content Include="Views\LayUI\ParentPopup.cshtml" />
     <Content Include="Views\LayUI\SonPopup.cshtml" />
+    <Content Include="Views\WebUploader\Index.cshtml" />
+    <Content Include="webuploader\dist\README.md" />
+    <Content Include="Views\ModelValid\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BaseService\" />
     <Folder Include="Views\UserService\" />
+    <Folder Include="Views\Values\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

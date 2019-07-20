@@ -1,240 +1,236 @@
-﻿
-using EF;
-using EF.Linq;
+﻿using EF.Model.CodeFristDemo;
 using Knowledge_Point知识点.MEF;
-using Knowledge_Point知识点.MySocket;
-using Knowledge_Point知识点.Unity;
-using Microsoft.Practices.Unity.Configuration;
-using Skill_Point.委托;
+using Miao_ToolCase.Action;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
-using Type_Conver;
+using Unity.Interception.Utilities;
 using Utils工具;
-using Utils工具.ASPOSE;
-using Utils工具.网络操作;
+using static Miao_ToolCase.Model.Test;
 
 namespace Miao_ToolCase
 {
-
-
-    public class Response
-    {
-        public string Flag { get; set; }
-        public string Code { get; set; }
-
-        public string Message { get; set; }
-        /// <summary>
-        /// 仓储系统入库单编码
-        /// </summary>
-        public string EntryOrderId { get; set; }
-    }
-
-    public class Department
-    {
-        /// <summary>    
-        /// 部门ID    
-        /// </summary>    
-        public int DepartmentId { get; set; }
-
-        /// <summary>    
-        /// 部门名称    
-        /// </summary>    
-        public string DepartmentName { get; set; }
-
-
-
-        /// <summary>  
-        /// 员工列表  
-        /// </summary>  
-        public List<Emplayee> EmplayeeList { get; set; }
-    }
-
-    /// <summary>    
-    /// 员工信息类    
-    /// </summary>    
-    public class Emplayee
-    {
-        /// <summary>    
-        /// 员工姓名    
-        /// </summary>    
-        public DateTime? EmplayeeName { get; set; }
-        /// <summary>    
-        /// 员工姓名    
-        /// </summary>    
-        public string Emplayee_Name { get; set; }
-
-        /// <summary>    
-        /// 部门ID    
-        /// </summary>    
-        public int DepartmentId { get; set; }
-    }
-
-
-
-    public class test
-    {
-        public int id { get; set; }
-
-        public string num { get; set; }
-    }
-
-
     public class Program
     {
+
+        public class ResponseTicketQuery
+        {
+            public string httpstatus { get; set; }
+
+            public string messages { get; set; }
+
+            public bool status { get; set; }
+
+            public string c_name { get; set; }
+
+            public string c_url { get; set; }
+
+
+            public TrainQueryData data { get; set; }
+        }
+
+        public class TrainQueryData
+        {
+            public string flag { get; set; }
+
+            public object map { get; set; }
+
+            public string[] result { get; set; }
+        }
+
+
+
+
         static void Main(string[] args)
         {
 
-            List<test> tests = new List<test>();
-            string a = "1,2,3,4,5";
-            var ss = string.Join(",", a).ToList();
-            Console.WriteLine(ss[0] + "dasdas" + ss.Count);
+            string str = (100.001 % 1).ToString("F1");
+
+            var a = Math.Round(23.100000381469727, 2);
+            int b = (int)100.9;
+            var c = 100.001 % 1;
+
+            ShowInterface showInterface = new AsposeWordShow();
+            showInterface.Show();
 
 
-            //Skill_Point.队列.ConcurrentQueueHelp.start();
-
-
-            //setText();
-            //new LinqSelect().MvcPageList();
-
-
-
-
-            ////var tcp = new Knowledge_Point知识点.MySocket.TcpClient();
+            //Model1 model1 = new Model1();
+            //var cc = model1.TB_Category.Count();
 
 
 
-            //string str = string.Empty;
-            //while (str != "exit")
+            //foreach (var item in tt)
             //{
-            //    str = Console.ReadLine();
-            //    Console.WriteLine("ME: " + DateTimeOffset.Now.ToString("G"));
-            //    ClientManager.SendMsgToClientList(str);
-            //}
-            //ClientManager.Close();
-            //server.Close();
-            //var a = new Log();
-
-
-            //var dao = UnitySingleton.GetInstanceDAL<DIExampleClass>();
-            //dao.DoWork();
-            //Console.ReadLine();
-
-            //string ip = Net.Ip;
-            //string Host = Net.Host;
-            //string myip = "113.116.77.4";
-            //string GetLocation = Net.GetLocation(myip);
-            //string Browser = Net.Browser;
-
-
-            //Console.WriteLine("主线程开始" );
-
-            //new ActionEntrust().Test();
-            //Console.WriteLine("主线程结束");
-            //int type = GetEnumValue(typeof(Page), "page2");
-            //var partialView = Enum.GetName(typeof(Page), type);
-
-
-            //response result = new response();
-            //result.flag = "success";
-            //result.code = "1";
-            //result.message = "成功";
-            //result.entryOrderId = "1";
-            //string xml = XmlSerialize<response>(result);
-
-
-
-            //using (MemoryStream ms = new MemoryStream())
-            //{
-            //    var setting = new XmlWriterSettings() { Encoding = new UTF8Encoding(false), Indent = true, };
-            //    using (XmlWriter writer = XmlWriter.Create(ms, setting))
-            //    {
-            //        XmlSerializer xmlSearializer = new XmlSerializer(typeof(response));
-            //        xmlSearializer.Serialize(writer, result);
-            //        var OutputXmlString = Encoding.UTF8.GetString(ms.ToArray());
-            //    }
+            //    Console.WriteLine(item.Key + "====" );
+            //    Console.WriteLine("<br />");
             //}
 
+            //MEF_Realize ss = new MEF_Realize();
+            //string a = UrlDecodeRecordId("1,2,3,4"); ;
+            //string b = a.Split('_')[1];
 
-            //MEF_Base MEF = new MEF_Realize();
-            //MEF = new MEF_Realize_B();
-            //MEF = new MEF_Realize_C();
-            //int OverdueDay = (DateTime.Now - DateTime.Now.AddDays(-5)).Days;
+            //a = "123_456";
+            ////从下一个索引开始截取
+            //string c = a.Substring(a.LastIndexOf('_') + 1);
 
-            //new LinqSelect().INNER_JOIN();
+            ////var list = GetScoreInfoRequest(5);
 
-            //Copy copy = new Copy();
-            //new BatchExtensions().ss();
-            //List<Emplayee> emplayeeList = GetEmplayeeList();
 
-            //获取员工信息列表    
-            //string empNames = ""; //员工名称字段  
-            //emplayeeList.ForEach(a => a.Emplayee_Name += a.EmplayeeName.ToString());
+            ////var s = list.GroupBy(x => x.Score).ToList();
+            //Console.WriteLine();
+        }
+        /// <summary>
+        /// 多个连续字段解密
+        /// </summary>
+        /// <param name="recordIds"></param>
+        /// <returns></returns>
+        private static string UrlDecodeRecordId(string recordIds)
+        {
+            string[] sArray = Regex.Split(recordIds, ",", RegexOptions.IgnoreCase);
+            string recordId = string.Empty;
+            sArray.ForEach(x => recordId += x + "a" + ",");
+            return recordId.TrimEnd(',');
+        }
 
-            //使用ForEach输入结果  
-            //emplayeeList.ForEach(a => Console.WriteLine(String.Format("员工名称：{0} and {1}", a.Emplayee_Name,a.EmplayeeName)));
+        public void CreateReportInOneStepRequest()
+        {
+            CreateReportInOneStepRequest req = new CreateReportInOneStepRequest();
+            req.OrganizationCode = 25477;
+            req.JuanZiId = 4298;
+            req.JuanZiName = "高三物理-高考-河南";
+            req.CourseId = 12;
+            req.GradeId = 6;
+            req.LocationId = 424;
+            req.JuanZiTypeId = 3;
+            req.ReadCommentTypeId = 2;
+            req.ReportLogoPath = "";
+            req.IncludeWrongNoteBookModule = true;
+            req.JuanZiQuestionInfos = JuanZiQuestionInfoRequest();
+            req.StudentScoreInfos = StudentScoreInfo(3);
+            var jSetting = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
+            var json = JsonConvert.SerializeObject(req, Newtonsoft.Json.Formatting.None, jSetting);
+        }
 
-            //empNames = empNames.TrimEnd(',');
-            //Console.WriteLine(empNames);      
+        public static List<JuanZiQuestionInfoRequest> JuanZiQuestionInfoRequest()
+        {
+            var juanZiQuestionInfo = new List<JuanZiQuestionInfoRequest>();
 
+            JuanZiQuestionInfoRequest juanZi = new JuanZiQuestionInfoRequest();
+
+            juanZi.QuestionNumber = 1;
+            juanZi.QuestionId = 75731073;
+            juanZi.FullScore = 5;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 2;
+            juanZi.QuestionId = 76051409;
+            juanZi.FullScore = 5;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 3;
+            juanZi.QuestionId = 76047576;
+            juanZi.FullScore = 5;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 4;
+            juanZi.QuestionId = 76050940;
+            juanZi.FullScore = 5;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 5;
+            juanZi.QuestionId = 75935329;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 6;
+            juanZi.QuestionId = 76027944;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 7;
+            juanZi.QuestionId = 75190189;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 8;
+            juanZi.QuestionId = 75732056;
+            juanZi.FullScore = 20;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 9;
+            juanZi.QuestionId = 75732987;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 10;
+            juanZi.QuestionId = 75775234;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 11;
+            juanZi.QuestionId = 75926602;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 12;
+            juanZi.QuestionId = 75932086;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZi.QuestionNumber = 13;
+            juanZi.QuestionId = 75889999;
+            juanZi.FullScore = 10;
+            juanZiQuestionInfo.Add(juanZi);
+
+            juanZiQuestionInfo.ForEach(x => x.ChooseQuestionGroupId = 0);
+
+            return juanZiQuestionInfo;
         }
 
 
 
-
-        public static void getText()
+        public static List<StudentScoreInfoRequest> StudentScoreInfo(int count)
         {
-            string strTest = string.Format("{0}\t{1}", 1, "a");
-
-            //System.IO.File.WriteAllText(@"C:\testDir\test1.txt", strTest, Encoding.UTF8);
-            string strTest1 = string.Format("{0}\t{1}", 2, "b");
-            //BB(strTest);
-            //BB(strTest1);
-            //System.IO.File.WriteAllText(@"C:\testDir\test1.txt", strTest1, Encoding.UTF8);
-
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"F:\\test2.txt", true))
+            var studentScoreInfos = new List<StudentScoreInfoRequest>();
+            for (int i = 0; i < count; i++)
             {
-                file.WriteLine(strTest);// 直接追加文件末尾，换行 
+                StudentScoreInfoRequest student = new StudentScoreInfoRequest
+                {
+                    UserTrueName = "打手的" + i,
+                    StudentNo = "we20190103161700" + i,
+                    GetScoreInfoRequests = GetScoreInfoRequest(13)
+                };
+                studentScoreInfos.Add(student);
             }
 
-        }
-
-        public static void BB(string str)
-        {
-            FileStream fs = new FileStream(@"F:\\test2.txt", FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            //开始写入
-            sw.Write(str);
-            //清空缓冲区
-            sw.Flush();
-            //关闭流
-            sw.Close();
-            fs.Close();
+            return studentScoreInfos;
         }
 
 
-        public static void setText()
+        public static List<GetScoreInfoRequest> GetScoreInfoRequest(int count)
         {
-            string file = "F:\\openQuestion.txt";
-            var lines = File.ReadAllLines(file, Encoding.UTF8);
-            foreach (var line in lines)
+            List<GetScoreInfoRequest> GetScoreInfoRequests = new List<GetScoreInfoRequest>();
+            for (int i = 0; i < count; i++)
             {
-                var ss = line.Split('\t');
-                Console.WriteLine("{0},{1},{2},{3}", ss[0], ss[1], ss[2], ss[3]);
+                GetScoreInfoRequest getScore = new GetScoreInfoRequest();
+                getScore.QuestionNumber = i;
+                getScore.Score = 5;
+                GetScoreInfoRequests.Add(getScore);
             }
+            return GetScoreInfoRequests;
         }
+
+
+
+
+
         public static int GetEnumValue(Type enumType, string enumName)
         {
             try
@@ -269,78 +265,20 @@ namespace Miao_ToolCase
 
         public static string XmlSerialize<T>(T obj)
         {
-
             string OutputXmlString = string.Empty;
-            //using (MemoryStream ms = new MemoryStream())
-            //{
-            //    var setting = new XmlWriterSettings() { Encoding = new UTF8Encoding(false), Indent = true, };
-            //    using (XmlWriter writer = XmlWriter.Create(ms, setting))
-            //    {
-            //        XmlSerializer xmlSearializer = new XmlSerializer(typeof(T));
-            //        xmlSearializer.Serialize(writer, obj);
-            //        OutputXmlString = Encoding.UTF8.GetString(ms.ToArray());
-            //    }
-            //}
-            //return OutputXmlString;
             var setting = new XmlWriterSettings() { Encoding = new UTF8Encoding(false), Indent = true, };
             using (StringWriter sw = new StringWriter())
             {
                 Type t = obj.GetType();
-                XmlSerializer serializer = new XmlSerializer(obj.GetType())
-                 ;
+                XmlSerializer serializer = new XmlSerializer(obj.GetType());
                 XmlDocument myXmlDoc = new XmlDocument();
-
                 serializer.Serialize(sw, obj);
-
                 sw.Close();
                 OutputXmlString = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(sw.ToString())); ;
                 return OutputXmlString;
             }
         }
 
-        /// <summary>    
-        /// 使用ForEach将部门列表与员工列表关联   
-        /// </summary>     
-        public static void JoinDepartmentList()
-        {
-            List<Department> departmentList = GetDepartmentList();   //获取部门信息列表    
-            List<Emplayee> emplayeeList = GetEmplayeeList();         //获取员工信息列表    
-            departmentList.ForEach(a => a.EmplayeeList = emplayeeList.Where(e => e.DepartmentId == a.DepartmentId).ToList());
 
-            //使用ForEach输入结果  
-            departmentList.ForEach(a => Console.WriteLine(String.Format("{0}:员工数量：{1}", a.DepartmentName, a.EmplayeeList.Count)));
-        }
-
-        /// <summary>    
-        /// 获取员工信息列表    
-        /// </summary>    
-        /// <returns></returns>    
-        public static List<Emplayee> GetEmplayeeList()
-        {
-            List<Emplayee> emplayeeList = new List<Emplayee>();
-            Emplayee emplayee1 = new Emplayee() { EmplayeeName = DateTime.Now, DepartmentId = 1, };
-            Emplayee emplayee2 = new Emplayee() { EmplayeeName = DateTime.Now.AddDays(1), DepartmentId = 2, };
-            Emplayee emplayee3 = new Emplayee() { EmplayeeName = DateTime.Now.AddDays(-1), DepartmentId = 2, };
-            emplayeeList.Add(new Emplayee() { EmplayeeName = DateTime.Now, DepartmentId = 1, });
-            emplayeeList.Add(new Emplayee() { EmplayeeName = DateTime.Now.AddDays(1), DepartmentId = 2, });
-            emplayeeList.Add(new Emplayee() { EmplayeeName = DateTime.Now.AddDays(-1), DepartmentId = 2, });
-            return emplayeeList;
-        }
-
-        /// <summary>    
-        /// 获取部门信息列表    
-        /// </summary>    
-        /// <returns></returns>    
-        public static List<Department> GetDepartmentList()
-        {
-            List<Department> departmentList = new List<Department>();
-            Department department1 = new Department() { DepartmentId = 1, DepartmentName = "研发部" };
-            Department department2 = new Department() { DepartmentId = 2, DepartmentName = "人事部" };
-            Department department3 = new Department() { DepartmentId = 3, DepartmentName = "财务部" };
-            departmentList.Add(department1);
-            departmentList.Add(department2);
-            departmentList.Add(department3);
-            return departmentList;
-        }
     }
 }

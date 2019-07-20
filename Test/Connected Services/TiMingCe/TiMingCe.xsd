@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11524/TiMingCe.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiMingCe.Request" />
+  <xs:import schemaLocation="http://localhost:11524/TiMingCe.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+  <xs:element name="GetStudentTiMingCeData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiMingCe.Request" minOccurs="0" name="request" nillable="true" type="q1:GetStudentTiMingCeDataRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStudentTiMingCeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="GetStudentTiMingCeDataResult" nillable="true" type="q2:ServiceResultOfTiMingCeEntityTca8ElYk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTiMingCeDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiMingCe.Request" minOccurs="0" name="request" nillable="true" type="q3:GetCreateTiMingCeDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTiMingCeDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="CreateTiMingCeDocumentResult" nillable="true" type="q4:ServiceResultOfbase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

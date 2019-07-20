@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi.Request" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+  <xs:complexType name="GetPdfInfoListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AppKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BeginTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StudentCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPdfInfoListRequest" nillable="true" type="tns:GetPdfInfoListRequest" />
+</xs:schema>

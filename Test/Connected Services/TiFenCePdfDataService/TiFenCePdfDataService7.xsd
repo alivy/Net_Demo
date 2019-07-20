@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi.Request" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCePdfDataService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.JuanZiPoint.Request" />
+  <xs:element name="GetPdfInfoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi.Request" minOccurs="0" name="request" nillable="true" type="q1:GetPdfInfoListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPdfInfoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi" minOccurs="0" name="GetPdfInfoListResult" nillable="true" type="q2:ArrayOfStudentExamResultWordInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPdfDetailInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="documentId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPdfDetailInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/YunXuePing.Model.JuanZi" minOccurs="0" name="GetPdfDetailInfoResult" nillable="true" type="q3:StudentExamResultWordInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertPdf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertPdfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConvertPdfResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportInOneStep">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" minOccurs="0" name="request" nillable="true" type="q4:CreateReportInOneStepRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportInOneStepResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="CreateReportInOneStepResult" nillable="true" type="q5:ServiceResultOfCreateReportInOneStepResponse4GHbq3UM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportInJuanZiQbmsApply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" minOccurs="0" name="request" nillable="true" type="q6:CreateReportInJuanZiQbmsApplyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportInJuanZiQbmsApplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="CreateReportInJuanZiQbmsApplyResult" nillable="true" type="q7:ServiceResultOfCreateReportInOneStepResponse4GHbq3UM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTiFenCeReportList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" minOccurs="0" name="request" nillable="true" type="q8:GetTiFenCeReportListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTiFenCeReportListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="GetTiFenCeReportListResult" nillable="true" type="q9:ServiceResultOfGetTiFenCeReportListResponse4GHbq3UM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTiFenCeReportStatusList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report.Request" minOccurs="0" name="request" nillable="true" type="q10:GetTiFenCeReportStatusListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTiFenCeReportStatusListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="GetTiFenCeReportStatusListResult" nillable="true" type="q11:ServiceResultOfArrayOfTiFenCeReportStatusModelxh_SroZBm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateJuanZiQbmsApply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.JuanZiPoint.Request" minOccurs="0" name="request" nillable="true" type="q12:CreateJuanZiQbmsApplyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateJuanZiQbmsApplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="CreateJuanZiQbmsApplyResult" nillable="true" type="q13:ServiceResultOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJuanZiQbmsApplyResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="juanZiId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJuanZiQbmsApplyResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="GetJuanZiQbmsApplyResultResult" nillable="true" type="q14:ServiceResultOfGetJuanZiQbmsApplyResultResponse8qtYJVFK" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReportInOneStepForJava">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:CreateReportInOneStepForJavaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CreateReportInOneStepForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OrganizationCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="JuanZiId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="JuanZiName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CourseId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GradeId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LocationId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="JuanZiTypeId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ReadCommentTypeId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ReportLogo" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ReportLogoPath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IncludeWrongNoteBookModule" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="JuanZiQuestionInfos" type="tns:ArrayOfJuanZiQuestionInfoForJavaRequest" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StudentScoreInfos" type="tns:ArrayOfStudentScoreInfoForJavaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfJuanZiQuestionInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JuanZiQuestionInfoForJavaRequest" nillable="true" type="tns:JuanZiQuestionInfoForJavaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="JuanZiQuestionInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="QuestionNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="QuestionId" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FullScore" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChooseQuestionGroupId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfStudentScoreInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StudentScoreInfoForJavaRequest" nillable="true" type="tns:StudentScoreInfoForJavaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StudentScoreInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UserTrueName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StudentNo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SchoolName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClassName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GetScoreInfoRequests" type="tns:ArrayOfGetScoreInfoForJavaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfGetScoreInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetScoreInfoForJavaRequest" nillable="true" type="tns:GetScoreInfoForJavaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetScoreInfoForJavaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="QuestionNumber" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Score" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StudentAnswer" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateReportInOneStepForJavaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="CreateReportInOneStepForJavaResult" type="tns:ServiceResultOfCreateReportInOneStepResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ServiceResultOfCreateReportInOneStepResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Entity" type="tns:CreateReportInOneStepResponse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceResult">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsSucceed" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateReportInOneStepResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ReprotRecordId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CheckErrorMessage" type="tns:ArrayOfCreateReportError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCreateReportError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CreateReportError" nillable="true" type="tns:CreateReportError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreateReportError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="StudentCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessages" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetRecordExamResultsByRecordId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordExamResultsByRecordIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="GetRecordExamResultsByRecordIdResult" nillable="true" type="q15:ServiceResultOfArrayOfSelfEvaluationExcelModelpB_SKTQd7" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

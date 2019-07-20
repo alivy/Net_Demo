@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.SelfEvaluation.Request" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Order.Request" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Organization" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.UserManagement" />
+  <xs:element name="UpdateTiFenCeReportPaidStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="studentExamResultId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTiFenCeReportPaidStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitSingleUserTiFenCeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="motkEncryptedUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="yunxuePingUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="userTrueName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" minOccurs="0" name="request" nillable="true" type="q1:TiFenCePdfCreationRequest" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" minOccurs="0" name="examData" nillable="true" type="q2:ArrayOfTiFenCeStudentExamDataDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitSingleUserTiFenCeRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitSingleUserTiFenCeRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleUserTiFenCePdfUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleUserTiFenCePdfUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSingleUserTiFenCePdfUrlResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitAutoZonedQuestionResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.SelfEvaluation.Request" minOccurs="0" name="submitAutoZonedQuestionResultRequest" nillable="true" type="q3:SubmitAutoZonedQuestionResultRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitAutoZonedQuestionResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="SubmitAutoZonedQuestionResultResult" nillable="true" type="q4:ServiceResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderConfirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Order.Request" minOccurs="0" name="orderConfirmRequest" nillable="true" type="q5:OrderConfirmRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderConfirmResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganizationCoursesByCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organizationCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganizationCoursesByCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Organization" minOccurs="0" name="GetOrganizationCoursesByCodeResult" nillable="true" type="q6:ArrayOfOrganizationCourse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishJuanZi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.SelfEvaluation.Request" minOccurs="0" name="request" nillable="true" type="q7:PublishJuanZiRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PublishJuanZiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" minOccurs="0" name="PublishJuanZiResult" nillable="true" type="q8:ServiceResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganizationInfosByOrganizationCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organizationCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganizationInfosByOrganizationCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/YunXuePing.Model.UserManagement" minOccurs="0" name="GetOrganizationInfosByOrganizationCodeResult" nillable="true" type="q9:ArrayOfOrganizationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleEARSUserTiFenCePdfUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="requestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleEARSUserTiFenCePdfUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSingleEARSUserTiFenCePdfUrlResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitTiFenCeRequestByEARS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" minOccurs="0" name="request" nillable="true" type="q10:SubmitTiFenCeRequestByEARSRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitTiFenCeRequestByEARSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitTiFenCeRequestByEARSResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

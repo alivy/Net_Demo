@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.UserManagement" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.ProceduralEvaluation" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Enum" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EvaluationTool" />
+  <xs:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="TiFenCePdfCreationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BatchEvaluationRecordId" type="xs:int" />
+      <xs:element minOccurs="0" name="BookVersionId" type="xs:int" />
+      <xs:element minOccurs="0" name="BucketId" type="xs:int" />
+      <xs:element minOccurs="0" name="CompanyLogoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseId" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreationUserId" type="xs:int" />
+      <xs:element minOccurs="0" name="EvaluationCoverUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaluationCreationTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamRulerTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpectPeriodEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FullScore" type="xs:double" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupPrice" type="xs:double" />
+      <xs:element minOccurs="0" name="HeaderLogoUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImprovementRulerId" type="xs:int" />
+      <xs:element minOccurs="0" name="ImprovementRulerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndividualizationQuestionLevelCount" type="xs:int" />
+      <xs:element minOccurs="0" name="IsNeedCreateJuanZiResult" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPartialRuler" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPayed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSetCover" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSetHeader" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStudentExamNumber" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JuanZiGroupId" type="xs:int" />
+      <xs:element minOccurs="0" name="JuanZiId" type="xs:int" />
+      <xs:element minOccurs="0" name="JuanZiResultId" type="xs:int" />
+      <xs:element minOccurs="0" name="KnowledgePointCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Level" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxDocumentPages" type="xs:int" />
+      <xs:element minOccurs="0" name="MotkExamSetId" type="xs:int" />
+      <xs:element minOccurs="0" name="MotkExamVirtualSetId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/YunXuePing.Model.UserManagement" minOccurs="0" name="OrganizationDetail" nillable="true" type="q1:OrganizationDetail" />
+      <xs:element minOccurs="0" name="PredictionRulerId" type="xs:int" />
+      <xs:element minOccurs="0" name="PredictionRulerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:double" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/YunXuePing.Model.ProceduralEvaluation" minOccurs="0" name="ProceduralEvaluationRecord" nillable="true" type="q2:ProceduralEvaluationRecord" />
+      <xs:element minOccurs="0" name="QuestionCountTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionPageTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReportTemplateRecordId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestId" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Enum" minOccurs="0" name="RequestStatus" type="q3:TiFenCePdfCreationRequestStatusEnum" />
+      <xs:element minOccurs="0" name="SaveTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="TiFenCeQuestionCountConfig" nillable="true" type="tns:ArrayOfTiFenCeQuestionCountConfig" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EvaluationTool" minOccurs="0" name="TiFenCeType" type="q4:TiFenCeTypeEnum" />
+      <xs:element minOccurs="0" name="UserReportSettingRecordId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TiFenCePdfCreationRequest" nillable="true" type="tns:TiFenCePdfCreationRequest" />
+  <xs:complexType name="ArrayOfTiFenCeQuestionCountConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TiFenCeQuestionCountConfig" nillable="true" type="tns:TiFenCeQuestionCountConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTiFenCeQuestionCountConfig" nillable="true" type="tns:ArrayOfTiFenCeQuestionCountConfig" />
+  <xs:complexType name="TiFenCeQuestionCountConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OrderIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionCount" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionModuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusFlag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TiFenCeQuestionCountConfig" nillable="true" type="tns:TiFenCeQuestionCountConfig" />
+  <xs:complexType name="ArrayOfTiFenCeStudentExamDataDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TiFenCeStudentExamDataDetail" nillable="true" type="tns:TiFenCeStudentExamDataDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTiFenCeStudentExamDataDetail" nillable="true" type="tns:ArrayOfTiFenCeStudentExamDataDetail" />
+  <xs:complexType name="TiFenCeStudentExamDataDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FullScore" type="xs:double" />
+      <xs:element minOccurs="0" name="JuanZiResultId" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KnowledgePointIds" nillable="true" type="q5:ArrayOfint" />
+      <xs:element minOccurs="0" name="QuestionId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentAnswer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentScore" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TiFenCeStudentExamDataDetail" nillable="true" type="tns:TiFenCeStudentExamDataDetail" />
+  <xs:complexType name="SubmitTiFenCeRequestByEARSRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CourseId" type="xs:int" />
+      <xs:element minOccurs="0" name="CourseTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExamName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsForecastExam" type="xs:int" />
+      <xs:element minOccurs="0" name="JuanZiTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="LocationId" type="xs:int" />
+      <xs:element minOccurs="0" name="MotkUserId" type="xs:int" />
+      <xs:element minOccurs="0" name="SchoolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTrueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkInfos" nillable="true" type="tns:ArrayOfStudentWorkInfo" />
+      <xs:element minOccurs="0" name="WorkTotalScore" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitTiFenCeRequestByEARSRequest" nillable="true" type="tns:SubmitTiFenCeRequestByEARSRequest" />
+  <xs:complexType name="ArrayOfStudentWorkInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StudentWorkInfo" nillable="true" type="tns:StudentWorkInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStudentWorkInfo" nillable="true" type="tns:ArrayOfStudentWorkInfo" />
+  <xs:complexType name="StudentWorkInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FullScore" type="xs:double" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="KnowledgePointIds" nillable="true" type="q6:ArrayOfint" />
+      <xs:element minOccurs="0" name="QuestionNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentScore" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StudentWorkInfo" nillable="true" type="tns:StudentWorkInfo" />
+</xs:schema>

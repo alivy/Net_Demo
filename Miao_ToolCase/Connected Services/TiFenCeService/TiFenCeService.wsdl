@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TiFenCeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.UserManagement" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.ProceduralEvaluation" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Enum" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EvaluationTool" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.SelfEvaluation.Request" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.SelfEvaluation" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Common" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Order.Request" />
+      <xsd:import schemaLocation="http://localhost:11524/TiFenCeService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.TiFenCe.Organization" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITiFenCeService_UpdateTiFenCeReportPaidStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTiFenCeReportPaidStatus" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_UpdateTiFenCeReportPaidStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTiFenCeReportPaidStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitSingleUserTiFenCeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSingleUserTiFenCeRequest" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitSingleUserTiFenCeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSingleUserTiFenCeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetSingleUserTiFenCePdfUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleUserTiFenCePdfUrl" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetSingleUserTiFenCePdfUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleUserTiFenCePdfUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitAutoZonedQuestionResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitAutoZonedQuestionResult" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitAutoZonedQuestionResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitAutoZonedQuestionResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_OrderConfirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrderConfirm" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_OrderConfirm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrderConfirmResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetOrganizationCoursesByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCoursesByCode" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetOrganizationCoursesByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCoursesByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_PublishJuanZi_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishJuanZi" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_PublishJuanZi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishJuanZiResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetOrganizationInfosByOrganizationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationInfosByOrganizationCode" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetOrganizationInfosByOrganizationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationInfosByOrganizationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetSingleEARSUserTiFenCePdfUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleEARSUserTiFenCePdfUrl" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_GetSingleEARSUserTiFenCePdfUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSingleEARSUserTiFenCePdfUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitTiFenCeRequestByEARS_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitTiFenCeRequestByEARS" />
+  </wsdl:message>
+  <wsdl:message name="ITiFenCeService_SubmitTiFenCeRequestByEARS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitTiFenCeRequestByEARSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITiFenCeService">
+    <wsdl:operation name="UpdateTiFenCeReportPaidStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/UpdateTiFenCeReportPaidStatus" message="tns:ITiFenCeService_UpdateTiFenCeReportPaidStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/UpdateTiFenCeReportPaidStatusResponse" message="tns:ITiFenCeService_UpdateTiFenCeReportPaidStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleUserTiFenCeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitSingleUserTiFenCeRequest" message="tns:ITiFenCeService_SubmitSingleUserTiFenCeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitSingleUserTiFenCeRequestResponse" message="tns:ITiFenCeService_SubmitSingleUserTiFenCeRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleUserTiFenCePdfUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/GetSingleUserTiFenCePdfUrl" message="tns:ITiFenCeService_GetSingleUserTiFenCePdfUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/GetSingleUserTiFenCePdfUrlResponse" message="tns:ITiFenCeService_GetSingleUserTiFenCePdfUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAutoZonedQuestionResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitAutoZonedQuestionResult" message="tns:ITiFenCeService_SubmitAutoZonedQuestionResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitAutoZonedQuestionResultResponse" message="tns:ITiFenCeService_SubmitAutoZonedQuestionResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderConfirm">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/OrderConfirm" message="tns:ITiFenCeService_OrderConfirm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/OrderConfirmResponse" message="tns:ITiFenCeService_OrderConfirm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationCoursesByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/GetOrganizationCoursesByCode" message="tns:ITiFenCeService_GetOrganizationCoursesByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/GetOrganizationCoursesByCodeResponse" message="tns:ITiFenCeService_GetOrganizationCoursesByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishJuanZi">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/PublishJuanZi" message="tns:ITiFenCeService_PublishJuanZi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/PublishJuanZiResponse" message="tns:ITiFenCeService_PublishJuanZi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationInfosByOrganizationCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/GetOrganizationInfosByOrganizationCode" message="tns:ITiFenCeService_GetOrganizationInfosByOrganizationCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/GetOrganizationInfosByOrganizationCodeResponse" message="tns:ITiFenCeService_GetOrganizationInfosByOrganizationCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleEARSUserTiFenCePdfUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/GetSingleEARSUserTiFenCePdfUrl" message="tns:ITiFenCeService_GetSingleEARSUserTiFenCePdfUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/GetSingleEARSUserTiFenCePdfUrlResponse" message="tns:ITiFenCeService_GetSingleEARSUserTiFenCePdfUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitTiFenCeRequestByEARS">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitTiFenCeRequestByEARS" message="tns:ITiFenCeService_SubmitTiFenCeRequestByEARS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITiFenCeService/SubmitTiFenCeRequestByEARSResponse" message="tns:ITiFenCeService_SubmitTiFenCeRequestByEARS_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITiFenCeService" type="tns:ITiFenCeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateTiFenCeReportPaidStatus">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/UpdateTiFenCeReportPaidStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleUserTiFenCeRequest">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/SubmitSingleUserTiFenCeRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleUserTiFenCePdfUrl">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/GetSingleUserTiFenCePdfUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAutoZonedQuestionResult">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/SubmitAutoZonedQuestionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderConfirm">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/OrderConfirm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationCoursesByCode">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/GetOrganizationCoursesByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishJuanZi">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/PublishJuanZi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationInfosByOrganizationCode">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/GetOrganizationInfosByOrganizationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleEARSUserTiFenCePdfUrl">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/GetSingleEARSUserTiFenCePdfUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitTiFenCeRequestByEARS">
+      <soap:operation soapAction="http://tempuri.org/ITiFenCeService/SubmitTiFenCeRequestByEARS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TiFenCeService">
+    <wsdl:port name="BasicHttpBinding_ITiFenCeService" binding="tns:BasicHttpBinding_ITiFenCeService">
+      <soap:address location="http://localhost:11524/TiFenCeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

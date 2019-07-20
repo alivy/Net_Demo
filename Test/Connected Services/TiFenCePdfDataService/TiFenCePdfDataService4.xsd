@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Exam" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Exam" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfSelfEvaluationExcelModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SelfEvaluationExcelModel" nillable="true" type="tns:SelfEvaluationExcelModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSelfEvaluationExcelModel" nillable="true" type="tns:ArrayOfSelfEvaluationExcelModel" />
+  <xs:complexType name="SelfEvaluationExcelModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerPageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AnswerUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImproveScore" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportPageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReportUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchoolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTrueName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SelfEvaluationExcelModel" nillable="true" type="tns:SelfEvaluationExcelModel" />
+</xs:schema>

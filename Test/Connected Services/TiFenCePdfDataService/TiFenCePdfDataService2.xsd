@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/YunXuePing.Model.Report" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDownloadReportInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DownloadReportInfo" nillable="true" type="tns:DownloadReportInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDownloadReportInfo" nillable="true" type="tns:ArrayOfDownloadReportInfo" />
+  <xs:complexType name="DownloadReportInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DigitizationReportUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportPageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ReportUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchoolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StudentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadReportInfo" nillable="true" type="tns:DownloadReportInfo" />
+  <xs:complexType name="ArrayOfTiFenCeReportStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TiFenCeReportStatusModel" nillable="true" type="tns:TiFenCeReportStatusModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTiFenCeReportStatusModel" nillable="true" type="tns:ArrayOfTiFenCeReportStatusModel" />
+  <xs:complexType name="TiFenCeReportStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProcessStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TiFenCeReportStatusModel" nillable="true" type="tns:TiFenCeReportStatusModel" />
+</xs:schema>
