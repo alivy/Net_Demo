@@ -47,10 +47,12 @@
     <Reference Include="gozeer.translate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\gozeer.translate.1.0.0.5\lib\gozeer.translate.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,22 +63,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exporter\ApiData.cs" />
+    <Compile Include="Exporter\Column.cs" />
+    <Compile Include="Exporter\Exporter.cs" />
+    <Compile Include="Exporter\From\ExporterExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exporter\From\ExporterExcel.Designer.cs">
+      <DependentUpon>ExporterExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exporter\HtmlDocExport.cs" />
+    <Compile Include="Exporter\ICompress.cs" />
+    <Compile Include="Exporter\IDataGetter.cs" />
+    <Compile Include="Exporter\IExport.cs" />
+    <Compile Include="Exporter\IFormatter.cs" />
+    <Compile Include="Exporter\NoneCompress.cs" />
+    <Compile Include="Exporter\NoneFormatter.cs" />
+    <Compile Include="Exporter\PdfExport.cs" />
+    <Compile Include="Exporter\SexFormatter.cs" />
+    <Compile Include="Exporter\XlsExport.cs" />
+    <Compile Include="Exporter\XlsxExport.cs" />
+    <Compile Include="Exporter\ZipCompress.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generator\Entity\Table.cs" />
-    <Compile Include="Generator\Entity\TableKey.cs" />
-    <Compile Include="Generator\Entity\TableSchema.cs" />
-    <Compile Include="Generator\GenTables.cs" />
-    <Compile Include="Generator\Providers\ISqlGen.cs" />
-    <Compile Include="Generator\Providers\Oracle.cs" />
-    <Compile Include="Generator\Providers\SqlServer.cs" />
-    <Compile Include="Generator\Untity\Util.cs" />
+    <Compile Include="Exporter\Generator\Entity\Table.cs" />
+    <Compile Include="Exporter\Generator\Entity\TableKey.cs" />
+    <Compile Include="Exporter\Generator\Entity\TableSchema.cs" />
+    <Compile Include="Exporter\Generator\GenTables.cs" />
+    <Compile Include="Exporter\Generator\Providers\ISqlGen.cs" />
+    <Compile Include="Exporter\Generator\Providers\Oracle.cs" />
+    <Compile Include="Exporter\Generator\Providers\SqlServer.cs" />
+    <Compile Include="Exporter\Generator\Untity\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Exporter\Request\RequestWrapper.cs" />
+    <Compile Include="Exporter\Request\RequestWrapperMethods.cs" />
+    <EmbeddedResource Include="Exporter\From\ExporterExcel.resx">
+      <DependentUpon>ExporterExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,10 +136,15 @@
       <Project>{512edd5d-2708-46cc-b35f-0929e5afb78a}</Project>
       <Name>EF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Zephyr.Utils\Zephyr.Utils.csproj">
+      <Project>{b62970f8-65aa-46e0-9f11-f573c117248f}</Project>
+      <Name>Zephyr.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.Translate.3.3.1.24\analyzers\dotnet\cs\AWSSDK.Translate.CodeAnalysis.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
